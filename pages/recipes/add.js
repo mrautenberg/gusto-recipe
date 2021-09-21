@@ -1,7 +1,9 @@
+import Layout from "@/components/Layout"
+
 export default function AddRecipePage() {
   return (
-    <div>
+    <Layout title="Add new recipe">
       <h1>Add Recipe</h1>
-    </div>
+    </Layout>
   )
 }

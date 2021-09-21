@@ -1,7 +1,9 @@
+import Layout from "@/components/Layout"
+
 export default function RecipePage() {
   return (
-    <div>
+    <Layout>
       <h1>All Recipes</h1>
-    </div>
+    </Layout>
   )
 }
