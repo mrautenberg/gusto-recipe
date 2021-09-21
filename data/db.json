@@ -5,6 +5,7 @@
     "cookingTime": 42,
     "image": "https://www.ica.se/recept/akta-carbonara-utan-gradde-726730/",
     "instructions": ["Boil water, do sauce. Yes?"],
-    "author": "Pastaking"
+    "author": "Pastaking",
+    "slug": "pasta-carbonara"
   }
 ]
