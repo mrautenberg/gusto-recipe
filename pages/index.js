@@ -6,8 +6,8 @@ import { API_URL } from "@/config/index"
 export default function HomePage({ recipes }) {
   return (
     <Layout>
-      <h1>Trending Bumblebees</h1>
-      {recipes.length === 0 && <h3>No bumblebees to show</h3>}
+      <h1>Popular Recipes</h1>
+      {recipes.length === 0 && <h3>No recipes to show</h3>}
 
       {recipes.map((rcp) => (
         <RecipeItem key={rcp.id} rcp={rcp} />

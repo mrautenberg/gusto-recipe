@@ -3,7 +3,7 @@ import Layout from "@/components/Layout"
 export default function AddRecipePage() {
   return (
     <Layout title="Add New Recipe">
-      <h1>Add a new bumblebee</h1>
+      <h1>Add a new recipe</h1>
     </Layout>
   )
 }

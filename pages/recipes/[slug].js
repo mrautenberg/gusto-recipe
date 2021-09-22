@@ -10,10 +10,16 @@ export default function RecipePage({ rcp }) {
     console.log("Recipe Deleted")
   }
 
+  // show either ingridients or description
+  const toggleInfo = () => {
+    console.log("toggle info")
+    // Set state to description, if not show ingredients
+  }
+
   return (
     <Layout>
       <div className={styles.event}>
-        <div className={styles.controls}>
+        {/* <div className={styles.controls}>
           <Link href={`/recipes/edit/${rcp.id}`}>
             <a>
               <FaPencilAlt /> Edit recipe
@@ -22,24 +28,30 @@ export default function RecipePage({ rcp }) {
           <a href="#" className={styles.delete} onClick={deleteEvent}>
             <FaTimes /> Delete Recipe
           </a>
-        </div>
+        </div> */}
 
-        <span>
-          {rcp.date} at {rcp.time}
-        </span>
-        <h1>{rcp.name}</h1>
+        {/* @TODO: Create render out JSX in a better way (tags & visually) */}
+        <h1>{rcp.title}</h1>
         {rcp.image && (
           <div className={styles.image}>
             <Image src={rcp.image} width={960} height={600} />
           </div>
         )}
-
-        <h3>Performers:</h3>
-        <p>{rcp.performers}</p>
-        <h3>Description:</h3>
-        <p>{rcp.description}</p>
-        <h3>Venue: {rcp.venue}</h3>
-        <p>{rcp.address}</p>
+        <h3>Ingredients:</h3>
+        {rcp.ingredients.map((r) => (
+          <p key={r.id}>{r}</p>
+        ))}
+        <h3>Cooking time:</h3>
+        <p>{rcp.minutes}</p>
+        <h3>Portions: {rcp.portions}</h3>
+        <h3>Category</h3>
+        <p>{rcp.category}</p>
+        <h3>Instructions</h3>
+        {rcp.instructions.map((r) => (
+          <p key={r.id}>{r}</p>
+        ))}
+        <h3>Author</h3>
+        <p>{rcp.author}</p>
 
         <Link href="/recipes">
           <a className={styles.back}>{"<"} Go Back</a>

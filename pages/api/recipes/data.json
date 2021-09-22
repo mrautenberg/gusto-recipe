@@ -1,76 +1,281 @@
 {
-  "events": [
+  "recipes": [
     {
       "id": "1",
-      "name": "Throwback Thursdays with DJ Manny Duke",
-      "slug": "throwback-thursdays-with-dj-manny-duke",
-      "venue": "Horizon Club",
-      "address": "919 3rd Ave New York, New York(NY), 10022",
-      "performers": "DJ Manny Duke",
-      "date": "June 09, 2021",
-      "time": "10:00 PM EST",
-      "description": "Featuring deep cuts, party anthems and remixes nostalgic songs from two of the best decades of music with the very best music from the 90's and 2000's",
-      "image": "/images/sample/event1.jpg"
+      "title": "Falukorv med snabbstuvade makaroner",
+      "ingredients": [
+        "4 port makaroner",
+        "2 gröna paprikor",
+        "550 g falukorv",
+        "4 dl mjölk",
+        "1 dl matlagningsgrädde",
+        "1 tsk smör",
+        "1/2 tsk salt",
+        "1 krm peppar"
+      ],
+      "minutes": "20 min",
+      "portions": "4",
+      "category": ["falukorv", "meat", "fast", "main"],
+      "image": "/images/sample/recipe1.jpg",
+      "instructions": [
+        "1. Koka makaroner enligt anvisningen på förpackningen.",
+        "2. Skär paprikorna i ringar, pilla bort kärnorna.",
+        "3. Skär korven i skivor. Stek korven i smöret i en stekpanna.",
+        "4. Häll av makaronerna (spola ej kalla)",
+        "5. Blanda mjölk, grädde och majsstärkelse i kastrullen och låt koka upp under omrörning. Koka cirka 2 minuter. Smaka av med salt och peppar och rör i makaronerna.",
+        "6. Servera makaronerna med korv och paprika."
+      ],
+      "author": "ICA",
+      "slug": "falukorv-makaroner"
     },
     {
       "id": "2",
-      "name": "Boom Dance Festival Experience",
-      "slug": "boom-dance-festival-experience",
-      "venue": "Blackjacks",
-      "address": "966 Lexington Ave New York, New York(NY), 10021",
-      "performers": "DJ LUCK & MC NEAT, NICKY BLACKMARKET, DJ NICKY BLACKMARKET, RATPACK",
-      "date": "June 2, 2021",
-      "time": "8:00 PM EST",
-      "description": "It's looking more and more like we will be seeing events return in the summer! To celebrate this we are arranging a festival experience to say good bye to lock down! We will also be celebrating the fact Zoom Dance is one year old!",
-      "image": "/images/sample/event2.jpg"
+      "title": "Marinerade bönor",
+      "ingredients": [
+        "1 förp kokta vita bönor (á 380 g)",
+        "1/2 gul lök",
+        "1/2 vitlöksklyfta",
+        "3 1/2 msk olja",
+        "1/2 tsk paprikapulver (rökt)",
+        "1 krm malen spiskummin",
+        "1 krm malen koriander",
+        "1/2 msk torkad oregano",
+        "2 krm salt",
+        "2 krm malen svartpeppar",
+        "1/2 msk vitvinsvinäger"
+      ],
+      "category": ["vegan", "fast", "side", "beans"],
+      "minutes": "20",
+      "portions": "4",
+      "image": "/images/sample/recipe2.jpg",
+      "instructions": [
+        "1. Häll av och skölj bönorna, låt rinna av. Skala och finhacka lök och vitlök. Stek i 2 msk olja till de mjuknar.",
+        "2. Blanda löken med kryddorna, bönorna, vinägern och resten av oljan. Låt marinera minst 15 minuter."
+      ],
+      "author": "ICA",
+      "slug": "marinerade-bonor"
     },
     {
       "id": "3",
-      "name": "Encore Night Boat Party",
-      "slug": "encore-night-boat-party",
-      "venue": "Encore",
-      "address": "675 Water St New York, New York(NY), 10002",
-      "performers": "Bad Boy Bill",
-      "date": "June 11, 2021",
-      "time": "7:00 PM EST",
-      "description": "Who is ready to party? I mean in the middle of the water, a boat with good music and drinks. If thats you then you have made it to the right place.",
-      "image": "/images/sample/event3.jpg"
+      "title": "Spenatravioli med pesto",
+      "ingredients": [
+        "2 1/2 dl matlagningsgrädde",
+        "1/2 dl mjölk",
+        "1 tsk majsstärkelse",
+        "1 dl pesto basilika",
+        "3 fpk färsk pasta girasole spenat (á 250 g)",
+        "1 dl riven ost",
+        "salt",
+        "peppar",
+        "400 g romanticatomater"
+      ],
+      "category": ["vegetarian", "pasta", "main"],
+      "minutes": "20",
+      "portions": "4",
+      "image": "/images/sample/recipe3.jpg",
+      "instructions": [
+        "1. Sätt på en kastrull med vatten till pastan.",
+        "2. Vispa ihop grädde, mjölk, majsstärkelse och pesto i en kastrull och koka upp såsen under omrörning.",
+        "3. Koka pastan enligt anvisningen på förpackningen.",
+        "4. Vispa ner osten i såsen och låt den smälta. Smaka av med salt och peppar.",
+        "5. Dela tomaterna.",
+        "6. Vänd pastan i såsen och servera med tomaterna"
+      ],
+      "author": "ICA",
+      "slug": "spenatravioli-pesto"
     },
     {
       "id": "4",
-      "name": "Jam Concert Live",
-      "slug": "jam-concert-live",
-      "venue": "Club Ozone",
-      "address": "70 W 115th St New York, New York(NY), 10026",
-      "performers": "DJ RNB",
-      "date": "June 20, 2021",
-      "time": "10:00 PM EST",
-      "description": "The most diverse dj on the east coast, DJ RNB team up once again to bring you the next installment in the high energy, Jam Concert Live series!",
-      "image": "/images/sample/event4.jpg"
+      "title": "Tomatsoppa",
+      "ingredients": [
+        "1 gul lök",
+        "2 förp krossade tomater (á 500 g)",
+        "2 msk tomatpuré",
+        "7 1/2 dl grönsaksbuljong",
+        "1 tsk vit balsamvinäger",
+        "1 tsk oregano",
+        "salt"
+      ],
+      "category": ["vegan", "soup", "fast"],
+      "minutes": "20",
+      "portions": "4",
+      "image": "/images/sample/recipe4.jpg",
+      "instructions": [
+        "1. Skala och hacka löken.",
+        "2. Koka upp hälften av de krossade tomaterna i en kastrull med lök, tomatpuré, buljong, vinäger och oregano. Låt sjuda ca 3 minuter.",
+        "3. Mixa slät med stavmixer eller i bägarmixer.",
+        "4. Häll ner resten av tomatkrosset och smaka av med salt"
+      ],
+      "author": "ICA",
+      "slug": "tomatsoppa"
     },
     {
-      "id": "5",
-      "name": "UnMute Rock Festival",
-      "slug": "unmute-rock-festival",
-      "venue": "Studio 54",
-      "address": "55 La Salle St #12K New York, New York(NY), 10027",
-      "performers": "Big Wednesday, Black Pyre, Calling Apollo",
-      "date": "June 30, 2021",
-      "time": "8:00 PM EST",
-      "description": "With bands from around the UK ready to send the roof into orbit, get ready for the loudest Welsh festival: the inaugural UnMute 2021.",
-      "image": "/images/sample/event5.jpg"
+      "id": "4",
+      "title": "Pannkakstårta med grädde och sylt",
+      "ingredients": [
+        "2 1/2 dl vetemjöl",
+        "1/2 tsk salt",
+        "5 dl mjölk",
+        "2 ägg",
+        "2 msk smör",
+        "3 dl vispgrädde",
+        "1 msk florsocker",
+        "4 dl sylt"
+      ],
+      "category": ["vegetarian", "desert", "egg"],
+      "minutes": "40",
+      "portions": "8",
+      "image": "/images/sample/recipe5.jpg",
+      "instructions": [
+        "1. Pannkakor: Blanda mjölmix och salt i en bunke. Vispa ner lite av mjölken i sänder till en slät smet. Vispa ner ett ägg i sänder.",
+        "2. Hetta upp en stekpanna med lite av smöret. Häll i ett tunt lager av smeten, när ytan stelnat vänd och stek på andra sidan någon minut.  Lägg dem på varandra med en remsa av bakplåts- eller smörgåspapper mellan varje pannkaka för att de ska gå lätt att sära på. Låt dem bli kalla.",
+        "3. Fyllning: Vispa grädden tjock tillsammans med florsockret.",
+        "4. Lägg en pannkaka på ett serveringsfat. Bred på grädde och sylt och sedan en pannkaka. Varva resten av pannkakorna på samma sätt."
+      ],
+      "author": "ICA",
+      "slug": "pannkakstarta"
     },
     {
       "id": "6",
-      "name": "Soul Kitchen Party",
-      "slug": "soul-kitchen-party",
-      "venue": "Onyx Club",
-      "address": "60 Gramercy Park N #2 New York, New York(NY), 10010",
-      "performers": "A-Trak, Nightmares on Wax, Rakim, Jay Electronica",
-      "date": "July 2, 2021",
-      "time": "8:00 PM EST",
-      "description": "Dope party which features Hip Hop legends, emerging artists and world-class turntablists",
-      "image": "/images/sample/event6.jpg"
+      "title": "Tårta med cheez doodles",
+      "ingredients": [
+        "20 g smör",
+        "150 g mjölkchoklad",
+        "1 burk marshmallowsfluff (á 213 g)",
+        "2 ägg",
+        "150 g ostbågar/cheez doodles",
+        "smält choklad",
+        "chokladströssel"
+      ],
+      "category": ["vegetarian", "desert", "chocolate"],
+      "minutes": "90",
+      "portions": "4",
+      "image": "/images/sample/recipe6.jpg",
+      "instructions": [
+        "1. Förbered en bakform till tårtan genom att täcka insidan av formen med plastfolie, så blir det lättare att stjälpa ur tårtan.",
+        "2. Smält smöret i en stor kastrull. Hacka chokladen och rör ner den i smöret.",
+        "3. När chokladen börjar smälta tillsätter du marshmallowfluff. Rör om tills chokladen smält och allt är väl blandat.",
+        "4. Vänd ner ostbågar och rör om ordentligt tills de är täckta av chokladblandningen.",
+        "5. Häll sedan allt i formen, sätt plastfolie över och ställ i kylen i minst 30-60 minuter så den hinner stelna till."
+      ],
+      "author": "ICA",
+      "slug": "tarta-ostbagar"
+    },
+    {
+      "id": "7",
+      "title": "Snabb laxgryta med potatis",
+      "ingredients": [
+        "900 g potatis",
+        "1/2 förp färsk persilja (á 20 g)",
+        "2 dl lätt créme fraiche",
+        "salt",
+        "peppar",
+        "3 morötter",
+        "1 msk olja",
+        "1 förp pastasås med basilika (á 390 g)",
+        "2 dl vatten",
+        "1 fiskbuljongtärning",
+        "500 g laxfilé"
+      ],
+      "category": ["fish", "potato", "main"],
+      "minutes": "30",
+      "portions": "4",
+      "image": "/images/sample/recipe7.jpg",
+      "instructions": [
+        "1. Tina laxen om fryst används.",
+        "2. Koka potatisen.",
+        "3. Hacka persiljan fint och blanda med crème fraichen. Krydda med salt och peppar.",
+        "4. Laxgryta: Skala och skär morötterna i tunna skivor och fräs dem i oljan i en gryta eller kastrull några minuter.",
+        "5. Häll i pastasås, vatten och smulad fiskbuljongtärning och låt koka under lock ca 5 minuter.",
+        "6. Skär laxen i ca 3 cm stora bitar och lägg ner i grytan. Låt sjuda ca 5 minuter under lock. Smaka av med salt och peppar.",
+        "7. Servera laxgrytan med potatis och persiljekräm."
+      ],
+      "author": "ICA",
+      "slug": "laxgryta-potatis"
+    },
+    {
+      "id": "8",
+      "title": "Vitlöksstekt kyckling med sparris",
+      "ingredients": [
+        "900 g potatis",
+        "600 g snabbfilé av kyckling",
+        "salt",
+        "peppar",
+        "2 vitlöksklyftor",
+        "300 g olivmix",
+        "250 g grön sparris",
+        "200 g sallad (gärna chrunchita)",
+        "1 msk olja",
+        "1/2 citron",
+        "1/2 förp färsk gräslök"
+      ],
+      "category": ["chicken", "asparagus", "main"],
+      "minutes": "90",
+      "portions": "4",
+      "image": "/images/sample/recipe8.jpg",
+      "instructions": [
+        "1. Sätt ugnen på 200°C.",
+        "2. Koka potatisen.",
+        "3. Bryn kycklingen i lite av oljan från oliverna i en stekpanna några minuter och krydda med salt och peppar. Skala och skiva vitlöken tunt.",
+        "4. Blanda vitlöken med kycklingen och oliverna, med resten av oljan från oliverna, i en ugnsform. Tillaga i ugnen ca 12 minuter eller tills innertemperaturen på kycklingen är 72°C.",
+        "5. Ansa och skär sparrisen i mindre bitar. Ansa och dela salladen i halvor.",
+        "6. Stek sparrisen i några minuter i hälften av oljan i en stekpanna och lägg upp dem på en tallrik.",
+        "7. Stek salladen på snittytan på hög värme ca 30 sekunder i resten av oljan och krydda med salt och peppar.",
+        "8. Pressa citronsaft över kycklingen. Hacka gräslöken och strö över.",
+        "9. Servera kycklingen och dressingen från ugnsformen med sparris, sallad och potatis."
+      ],
+      "author": "ICA",
+      "slug": "kyckling-sparris"
+    },
+    {
+      "id": "9",
+      "title": "Gröt i blöt",
+      "ingredients": [
+        "1/2 dl rågkross",
+        "1 msk krusakli",
+        "1 msk hela linfrön",
+        "1 msk russin",
+        "2 katrinplommon",
+        "1 fikon",
+        "1 1/2 dl vatten",
+        "4/5 dl vatten till kokning",
+        "1 krm salt",
+        "ev mjölk till servering"
+      ],
+      "category": ["oat", "breakfast", "slow"],
+      "minutes": "400",
+      "portions": "1",
+      "image": "/images/sample/recipe9.jpg",
+      "instructions": [
+        "1. Blanda rågkross, kruskakli, linfrön, russin, katrinplommon och fikon klippt i småbitar. Häll på vattnet och låt stå i blöt över natten.",
+        "2. Koka ihop på morgonen till en gröt med vatten och salt. Servera gärna med mjölk."
+      ],
+      "author": "ICA",
+      "slug": "grot-i-blot"
+    },
+    {
+      "id": "10",
+      "title": "Bruschetta med tomat och basilika",
+      "ingredients": [
+        "4 skivor lantbröd",
+        "1 vitlöksklyftor",
+        "1/2 dlolivolja",
+        "4 tomater gula och röda",
+        "1/2 kruka basilika",
+        "salt",
+        "peppar"
+      ],
+      "category": ["bread", "tomato", "side", "fast"],
+      "minutes": "20",
+      "portions": "4",
+      "image": "/images/sample/recipe10.jpg",
+      "instructions": [
+        "1. Sätt ugnen på 250°C.",
+        "2. Skölj och skär tomaterna i små tärningar. Strimla basilikan och blanda ihop med tomaterna. Ringla över några droppar av olivoljan och smaka av med salt och peppar.",
+        "3. Grilla brödskivorna i  på ett galler i övre delen av ugnen eller rosta dem gyllenbruna i en stekpanna. Gnid in ena sidan av det varma brödet med vitlök. Droppa över lite olivolja. Fördela tomaterna på de nyrostade brödskivorna."
+      ],
+      "author": "ICA",
+      "slug": "bruschetta"
     }
   ]
 }

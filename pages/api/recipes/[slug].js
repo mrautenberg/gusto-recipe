@@ -1,12 +1,12 @@
-const { events } = require("./data.json")
+const { recipes } = require("./data.json")
 
 export default function handler(req, res) {
   // Get a single event with a slug
-  const evt = events.filter((ev) => ev.slug === req.query.slug)
+  const rcp = recipes.filter((r) => r.slug === req.query.slug)
 
   // Limit method
   if (req.method === "GET") {
-    res.status(200).json(evt)
+    res.status(200).json(rcp)
   } else {
     // Limit which methods that are allowed
     res.setHeader("Allow", ["GET"])

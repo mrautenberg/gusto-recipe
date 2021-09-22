@@ -1,3 +1,5 @@
+// Card in grid for individual recipe
+
 import Link from "next/link"
 import Image from "next/image"
 import styles from "@/styles/RecipeItem.module.css"
@@ -7,17 +9,15 @@ export default function RecipeItem({ rcp }) {
     <div className={styles.event}>
       <div className={styles.img}>
         <Image
-          src={rcp.image ? rcp.image : "/images/event-default.png"}
+          src={rcp.image || "/images/recipe-default.jpg"}
           width={170}
           height={100}
         />
       </div>
 
       <div className={styles.info}>
-        <span>
-          {rcp.date} at {rcp.time}
-        </span>
-        <h3>{rcp.name}</h3>
+        <h3>{rcp.title}</h3>
+        <p>text will be added</p>
       </div>
 
       <div className={styles.link}>

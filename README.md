@@ -2,7 +2,9 @@
 
 ## :construction: WIP building Gusto with nextjs, strapi & material UI.
 
-### Recept hämtade från ICA:
+### This is just a sandbox/learning project where I practice on implementing a Figma design & some new technologies I haven't worked with :)
+
+### Recipes come from:
 
 1. https://www.ica.se/recept/falukorv-med-snabbstuvade-makaroner-726267/
 2. https://www.ica.se/recept/marinerade-bonor-728493/
