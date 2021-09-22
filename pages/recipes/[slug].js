@@ -1,6 +1,13 @@
-import { FaPencilAlt, FaTimes } from "react-icons/fa"
 import Link from "next/link"
 import Image from "next/image"
+
+import Card from "@mui/material/Card"
+import CardMedia from "@mui/material/CardMedia"
+import ButtonGroup from "@mui/material/ButtonGroup"
+import Button from "@mui/material/Button"
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+import MenuIcon from "@mui/icons-material/Menu"
+
 import Layout from "@/components/Layout"
 import { API_URL } from "@/config/index"
 import styles from "@/styles/Recipe.module.css"
@@ -18,25 +25,28 @@ export default function RecipePage({ rcp }) {
 
   return (
     <Layout>
-      <div className={styles.event}>
-        {/* <div className={styles.controls}>
-          <Link href={`/recipes/edit/${rcp.id}`}>
-            <a>
-              <FaPencilAlt /> Edit recipe
-            </a>
-          </Link>
-          <a href="#" className={styles.delete} onClick={deleteEvent}>
-            <FaTimes /> Delete Recipe
-          </a>
-        </div> */}
+      <>
+        <Card sx={{ maxWidth: 345 }}>
+          <h1>{rcp.title}</h1>
+          {rcp.image && (
+            <CardMedia
+              component="img"
+              height="200"
+              image={rcp.image}
+              alt="default recipe"
+            />
+          )}
+        </Card>
+        <ButtonGroup variant="outlined" aria-label="outlined button group">
+          <Button>Ready in 45 min</Button>
+          <Button>Ingredients 4/7</Button>
+        </ButtonGroup>
+        <ButtonGroup variant="text" aria-label="text button group">
+          <Button>Ingredients</Button>
+          <Button>Do Like This</Button>
+        </ButtonGroup>
 
-        {/* @TODO: Create render out JSX in a better way (tags & visually) */}
-        <h1>{rcp.title}</h1>
-        {rcp.image && (
-          <div className={styles.image}>
-            <Image src={rcp.image} width={960} height={600} />
-          </div>
-        )}
+        {/* LOOK UP TYPOGRAPHY! */}
         <h3>Ingredients:</h3>
         {rcp.ingredients.map((r) => (
           <p key={r.id}>{r}</p>
@@ -53,10 +63,19 @@ export default function RecipePage({ rcp }) {
         <h3>Author</h3>
         <p>{rcp.author}</p>
 
+        {/* POSITION IN HEADER */}
         <Link href="/recipes">
-          <a className={styles.back}>{"<"} Go Back</a>
+          <a>
+            <ArrowBackIcon />
+          </a>
         </Link>
-      </div>
+        <br />
+        <Link href="#">
+          <a>
+            <MenuIcon />
+          </a>
+        </Link>
+      </>
     </Layout>
   )
 }
