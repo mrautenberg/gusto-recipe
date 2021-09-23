@@ -7,16 +7,12 @@ import ButtonGroup from "@mui/material/ButtonGroup"
 import Button from "@mui/material/Button"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import MenuIcon from "@mui/icons-material/Menu"
+import Typography from "@mui/material/Typography"
 
 import Layout from "@/components/Layout"
 import { API_URL } from "@/config/index"
-import styles from "@/styles/Recipe.module.css"
 
 export default function RecipePage({ rcp }) {
-  const deleteEvent = () => {
-    console.log("Recipe Deleted")
-  }
-
   // show either ingridients or description
   const toggleInfo = () => {
     console.log("toggle info")
@@ -47,22 +43,24 @@ export default function RecipePage({ rcp }) {
         </ButtonGroup>
 
         {/* LOOK UP TYPOGRAPHY! */}
-        <h3>Ingredients:</h3>
-        {rcp.ingredients.map((r) => (
-          <p key={r.id}>{r}</p>
-        ))}
-        <h3>Cooking time:</h3>
-        <p>{rcp.minutes}</p>
-        <h3>Portions: {rcp.portions}</h3>
-        <h3>Category</h3>
-        <p>{rcp.category}</p>
-        <h3>Instructions</h3>
-        {rcp.instructions.map((r) => (
-          <p key={r.id}>{r}</p>
-        ))}
-        <h3>Author</h3>
-        <p>{rcp.author}</p>
-
+        {/* TOGGLE EITHER INGR OR INSTR */}
+        <Typography color="secondary">
+          <h3>Ingredients:</h3>
+          {rcp.ingredients.map((r) => (
+            <p key={r.id}>{r}</p>
+          ))}
+          <h3>Cooking time:</h3>
+          <p>{rcp.minutes}</p>
+          <h3>Portions: {rcp.portions}</h3>
+          <h3>Category</h3>
+          <p>{rcp.category}</p>
+          <h3>Instructions</h3>
+          {rcp.instructions.map((r) => (
+            <p key={r.id}>{r}</p>
+          ))}
+          <h3>Author</h3>
+          <p>{rcp.author}</p>
+        </Typography>
         {/* POSITION IN HEADER */}
         <Link href="/recipes">
           <a>
