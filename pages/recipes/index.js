@@ -2,6 +2,7 @@ import Layout from "@/components/Layout"
 import RecipeItem from "@/components/RecipeItem"
 import { API_URL } from "@/config/index"
 
+// Will this be the search results??
 export default function RecipePage({ recipes }) {
   return (
     <Layout>

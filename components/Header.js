@@ -1,22 +1,26 @@
 import Link from "next/link"
-import styles from "@/styles/Header.module.css"
-
-// @TODO: ADD NAVBAR
+import { Button } from "@mui/material"
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+import MenuIcon from "@mui/icons-material/Menu"
 
 export default function Header() {
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <a>Gusto</a>
-        </Link>
-      </div>
-
+    <header>
       <nav>
         <ul>
           <li>
-            <Link href="/recipes">
-              <a>Recipes</a>
+            <Button>
+              <MenuIcon />
+            </Button>
+          </li>
+          <li>
+            <Button>
+              <ArrowBackIcon />
+            </Button>
+          </li>
+          <li>
+            <Link href="/">
+              <a>Home</a>
             </Link>
           </li>
         </ul>

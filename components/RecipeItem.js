@@ -2,12 +2,11 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import styles from "@/styles/RecipeItem.module.css"
 
 export default function RecipeItem({ rcp }) {
   return (
-    <div className={styles.event}>
-      <div className={styles.img}>
+    <div>
+      <div>
         <Image
           src={rcp.image || "/images/recipe-default.jpg"}
           width={170}
@@ -15,14 +14,14 @@ export default function RecipeItem({ rcp }) {
         />
       </div>
 
-      <div className={styles.info}>
+      <div>
         <h3>{rcp.title}</h3>
         <p>text will be added</p>
       </div>
 
-      <div className={styles.link}>
+      <div>
         <Link href={`/recipes/${rcp.slug}`}>
-          <a className="btn">Details</a>
+          <a>Details</a>
         </Link>
       </div>
     </div>

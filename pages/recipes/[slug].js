@@ -1,78 +1,92 @@
-import Link from "next/link"
-import Image from "next/image"
-
+import { useState } from "react"
 import Card from "@mui/material/Card"
 import CardMedia from "@mui/material/CardMedia"
 import ButtonGroup from "@mui/material/ButtonGroup"
 import Button from "@mui/material/Button"
-import ArrowBackIcon from "@mui/icons-material/ArrowBack"
-import MenuIcon from "@mui/icons-material/Menu"
 import Typography from "@mui/material/Typography"
+import Grid from "@mui/material/Grid"
 
 import Layout from "@/components/Layout"
 import { API_URL } from "@/config/index"
 
 export default function RecipePage({ rcp }) {
-  // show either ingridients or description
-  const toggleInfo = () => {
-    console.log("toggle info")
-    // Set state to description, if not show ingredients
-  }
+  const [showIngredients, setShowIngredients] = useState(true)
 
   return (
     <Layout>
       <>
-        <Card sx={{ maxWidth: 345 }}>
-          <h1>{rcp.title}</h1>
+        <Card>
+          <Typography variant="h3" component="h1" align="center" gutterBottom>
+            {rcp.title}
+          </Typography>
           {rcp.image && (
             <CardMedia
               component="img"
               height="200"
               image={rcp.image}
-              alt="default recipe"
+              alt={rcp.title}
             />
           )}
         </Card>
-        <ButtonGroup variant="outlined" aria-label="outlined button group">
-          <Button>Ready in 45 min</Button>
-          <Button>Ingredients 4/7</Button>
-        </ButtonGroup>
-        <ButtonGroup variant="text" aria-label="text button group">
-          <Button>Ingredients</Button>
-          <Button>Do Like This</Button>
-        </ButtonGroup>
+        <Grid>
+          <Grid item xs={12}>
+            <ButtonGroup
+              fullWidth
+              variant="contained"
+              aria-label="contained button group"
+            >
+              <Button>Ready in {rcp.minutes} </Button>
+              <Button>Ingredients 4/7</Button>
+            </ButtonGroup>
+          </Grid>
+          <Grid item xs={12}>
+            <ButtonGroup
+              variant="text"
+              aria-label="text button group"
+              fullWidth
+            >
+              <Button onClick={() => setShowIngredients(true)}>
+                Ingredients
+              </Button>
+              <Button onClick={() => setShowIngredients(false)}>
+                Do Like This
+              </Button>
+            </ButtonGroup>
+          </Grid>
+        </Grid>
 
-        {/* LOOK UP TYPOGRAPHY! */}
-        {/* TOGGLE EITHER INGR OR INSTR */}
         <Typography color="secondary">
-          <h3>Ingredients:</h3>
-          {rcp.ingredients.map((r) => (
-            <p key={r.id}>{r}</p>
-          ))}
-          <h3>Cooking time:</h3>
-          <p>{rcp.minutes}</p>
-          <h3>Portions: {rcp.portions}</h3>
-          <h3>Category</h3>
-          <p>{rcp.category}</p>
-          <h3>Instructions</h3>
-          {rcp.instructions.map((r) => (
-            <p key={r.id}>{r}</p>
-          ))}
-          <h3>Author</h3>
-          <p>{rcp.author}</p>
+          <Typography variant="h6" component="h3">
+            Portions: {rcp.portions}
+          </Typography>
+
+          {showIngredients ? (
+            <>
+              <Typography variant="h5" component="h2">
+                Ingredients:
+              </Typography>
+              {rcp.ingredients.map((r) => (
+                <li key={r.id}>{r}</li>
+              ))}
+            </>
+          ) : (
+            <>
+              <Typography variant="h5" component="h2">
+                Instructions
+              </Typography>
+              {rcp.instructions.map((r) => (
+                <li key={r.id}>{r}</li>
+              ))}
+            </>
+          )}
+
+          <Typography variant="h5" component="h2">
+            Author
+          </Typography>
+          <Typography variant="body1" component="p">
+            {rcp.author}
+          </Typography>
         </Typography>
-        {/* POSITION IN HEADER */}
-        <Link href="/recipes">
-          <a>
-            <ArrowBackIcon />
-          </a>
-        </Link>
-        <br />
-        <Link href="#">
-          <a>
-            <MenuIcon />
-          </a>
-        </Link>
       </>
     </Layout>
   )
