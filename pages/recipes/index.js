@@ -1,13 +1,20 @@
 import Layout from "@/components/Layout"
 import RecipeItem from "@/components/RecipeItem"
 import { API_URL } from "@/config/index"
+import Typography from "@mui/material/Typography"
 
 // Will this be the search results??
 export default function RecipePage({ recipes }) {
   return (
     <Layout>
-      <h1>All Recipes</h1>
-      {recipes.length === 0 && <h3>No recipes to show</h3>}
+      <Typography variant="h3" component="h1">
+        All Recipes
+      </Typography>
+      {recipes.length === 0 && (
+        <Typography variant="h6" component="h3">
+          No recipes to show
+        </Typography>
+      )}
 
       {recipes.map((rcp) => (
         <RecipeItem key={rcp.id} rcp={rcp} />

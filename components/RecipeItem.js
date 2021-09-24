@@ -1,29 +1,33 @@
-// Card in grid for individual recipe
-
 import Link from "next/link"
 import Image from "next/image"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
 
 export default function RecipeItem({ rcp }) {
   return (
-    <div>
-      <div>
+    <>
+      <Grid item xs={12}>
         <Image
           src={rcp.image || "/images/recipe-default.jpg"}
-          width={170}
-          height={100}
+          width={300}
+          height={150}
         />
-      </div>
+      </Grid>
 
-      <div>
-        <h3>{rcp.title}</h3>
-        <p>text will be added</p>
-      </div>
+      <Grid item xs={12}>
+        <Typography variant="h6" component="h3">
+          {rcp.title}
+        </Typography>
+        <Typography variant="body1" component="p">
+          5 out of {rcp.ingredients.length} ingredients
+        </Typography>
+      </Grid>
 
-      <div>
+      <Grid item xs={12}>
         <Link href={`/recipes/${rcp.slug}`}>
-          <a>Details</a>
+          <a>More information</a>
         </Link>
-      </div>
-    </div>
+      </Grid>
+    </>
   )
 }

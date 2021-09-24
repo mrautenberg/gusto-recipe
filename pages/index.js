@@ -3,31 +3,38 @@ import Layout from "@/components/Layout"
 import RecipeItem from "@/components/RecipeItem"
 import { API_URL } from "@/config/index"
 import Button from "@mui/material/Button"
-import Box from "@mui/material/Box"
-import Paper from "@mui/material/Paper"
 import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
 
 export default function HomePage({ recipes }) {
   return (
     <Layout>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <h1>Popular Recipes</h1>
-          {recipes.length === 0 && <h3>No recipes to show</h3>}
+      <Grid container spacing={2}>
+        <Typography variant="h3" component="h1">
+          Popular Recipes
+        </Typography>
+        {recipes.length === 0 && (
+          <Typography variant="h6" component="h3">
+            No recipes to show
+          </Typography>
+        )}
 
-          {recipes.map((rcp) => (
+        {recipes.map((rcp) => (
+          <Grid item spacing={2} xs={6}>
             <RecipeItem key={rcp.id} rcp={rcp} />
-          ))}
+          </Grid>
+        ))}
 
+        <Grid item xs={12}>
           {recipes.length > 0 && (
-            <Button variant="contained">
+            <Button fullWidth variant="contained">
               <Link href="/recipes">
                 <a>See All recipes</a>
               </Link>
             </Button>
           )}
         </Grid>
-      </Box>
+      </Grid>
     </Layout>
   )
 }
