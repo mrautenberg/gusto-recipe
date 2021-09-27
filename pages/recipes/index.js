@@ -4,7 +4,7 @@ import { API_URL } from "@/config/index"
 import Typography from "@mui/material/Typography"
 
 // Will this be the search results??
-export default function RecipePage({ recipes }) {
+export default function RecipesPage({ recipes }) {
   return (
     <Layout>
       <Typography variant="h3" component="h1">

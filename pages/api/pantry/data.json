@@ -1,0 +1,20 @@
+{
+  "pantry": [
+    {
+      "id": "1",
+      "name": "kyckling",
+      "quantity": "500",
+      "category": "fridge",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "2",
+      "name": "tomato",
+      "quantity": "350",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    }
+  ]
+}
