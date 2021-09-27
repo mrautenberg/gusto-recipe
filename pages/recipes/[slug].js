@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useState } from "react"
 import Card from "@mui/material/Card"
 import CardMedia from "@mui/material/CardMedia"
@@ -20,14 +21,20 @@ export default function RecipePage({ rcp }) {
             {rcp.title}
           </Typography>
           {rcp.image && (
-            <CardMedia
-              component="img"
-              height="200"
-              image={rcp.image}
-              alt={rcp.title}
-            />
+            // Link should be in index & not slug
+            <Link href="https://google.com">
+              <a>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={rcp.image}
+                  alt={rcp.title}
+                />
+              </a>
+            </Link>
           )}
         </Card>
+
         <Grid>
           <Grid item xs={12}>
             <ButtonGroup

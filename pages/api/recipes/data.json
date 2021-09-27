@@ -110,8 +110,8 @@
       "slug": "tomatsoppa"
     },
     {
-      "id": "4",
-      "title": "Pannkakstårta med grädde och sylt",
+      "id": "5",
+      "title": "Pannkakstårta",
       "ingredients": [
         "2 1/2 dl vetemjöl",
         "1/2 tsk salt",
@@ -159,11 +159,11 @@
         "5. Häll sedan allt i formen, sätt plastfolie över och ställ i kylen i minst 30-60 minuter så den hinner stelna till."
       ],
       "author": "ICA",
-      "slug": "tarta-ostbagar"
+      "slug": "tarta-med-ostbagar"
     },
     {
       "id": "7",
-      "title": "Snabb laxgryta med potatis",
+      "title": "Laxgryta med potatis",
       "ingredients": [
         "900 g potatis",
         "1/2 förp färsk persilja (á 20 g)",
@@ -191,11 +191,11 @@
         "7. Servera laxgrytan med potatis och persiljekräm."
       ],
       "author": "ICA",
-      "slug": "laxgryta-potatis"
+      "slug": "laxgryta-med-potatis"
     },
     {
       "id": "8",
-      "title": "Vitlöksstekt kyckling med sparris",
+      "title": "Kyckling med sparris",
       "ingredients": [
         "900 g potatis",
         "600 g snabbfilé av kyckling",
@@ -225,7 +225,7 @@
         "9. Servera kycklingen och dressingen från ugnsformen med sparris, sallad och potatis."
       ],
       "author": "ICA",
-      "slug": "kyckling-sparris"
+      "slug": "kyckling-med-sparris"
     },
     {
       "id": "9",
@@ -255,17 +255,17 @@
     },
     {
       "id": "10",
-      "title": "Bruschetta med tomat och basilika",
+      "title": "Bruschetta",
       "ingredients": [
         "4 skivor lantbröd",
         "1 vitlöksklyftor",
-        "1/2 dlolivolja",
+        "1/2 dl olivolja",
         "4 tomater gula och röda",
         "1/2 kruka basilika",
         "salt",
         "peppar"
       ],
-      "category": ["bread", "tomato", "side", "fast"],
+      "category": ["bread", "tomato", "side"],
       "minutes": "20",
       "portions": "4",
       "image": "/images/sample/recipe10.jpg",
