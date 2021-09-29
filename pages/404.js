@@ -1,7 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search"
 import Typography from "@mui/material/Typography"
 import Link from "next/link"
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout/Layout"
 
 export default function NotFoundPage() {
   return (

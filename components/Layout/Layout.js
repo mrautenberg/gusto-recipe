@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Header from "./Header"
 import Footer from "./Footer"
-import CssBaseline from "@mui/material/CssBaseline"
 import Container from "@mui/material/Container"
 
 export default function Layout({ title, keywords, description, children }) {
@@ -13,8 +12,7 @@ export default function Layout({ title, keywords, description, children }) {
         <meta name="keywords" content={keywords} />
       </Head>
       <>
-        <CssBaseline />
-        <Container maxWidth="sm">
+        <Container maxWidth="xs">
           <Header />
           <>{children}</>
           <Footer />

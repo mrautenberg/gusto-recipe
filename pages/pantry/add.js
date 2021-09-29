@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout/Layout"
 import Button from "@mui/material/Button"
 import Search from "@/components/Search"
 // What already exists

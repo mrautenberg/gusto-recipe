@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout/Layout"
 import PantryItem from "@/components/PantryItem"
 import { API_URL } from "@/config/index"
 import Typography from "@mui/material/Typography"

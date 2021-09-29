@@ -1,14 +1,14 @@
-import Link from "next/link"
 import { useState } from "react"
+
+import Button from "@mui/material/Button"
+import ButtonGroup from "@mui/material/ButtonGroup"
 import Card from "@mui/material/Card"
 import CardMedia from "@mui/material/CardMedia"
-import ButtonGroup from "@mui/material/ButtonGroup"
-import Button from "@mui/material/Button"
-import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
 
-import Layout from "@/components/Layout"
 import { API_URL } from "@/config/index"
+import Layout from "@/components/Layout/Layout"
 
 export default function RecipePage({ rcp }) {
   const [showIngredients, setShowIngredients] = useState(true)
@@ -17,22 +17,17 @@ export default function RecipePage({ rcp }) {
     <Layout>
       <>
         <Card>
+          {rcp.image && (
+            <CardMedia
+              component="img"
+              height="200"
+              image={rcp.image}
+              alt={rcp.title}
+            />
+          )}
           <Typography variant="h3" component="h1" align="center" gutterBottom>
             {rcp.title}
           </Typography>
-          {rcp.image && (
-            // Link should be in index & not slug
-            <Link href="https://google.com">
-              <a>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={rcp.image}
-                  alt={rcp.title}
-                />
-              </a>
-            </Link>
-          )}
         </Card>
 
         <Grid>
@@ -64,7 +59,13 @@ export default function RecipePage({ rcp }) {
 
         <Typography color="secondary">
           <Typography variant="h6" component="h3">
-            Portions: {rcp.portions}
+            {rcp.portions} portions
+            <Button variant="contained" color="info">
+              +
+            </Button>
+            <Button variant="contained" color="info">
+              -
+            </Button>
           </Typography>
 
           {showIngredients ? (

@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography"
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout/Layout"
 
 export default function PrivacyPage() {
   return (

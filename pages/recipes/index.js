@@ -1,8 +1,18 @@
-import Layout from "@/components/Layout"
-import RecipeItem from "@/components/RecipeItem"
-import Search from "@/components/Search"
 import { API_URL } from "@/config/index"
+
+import Layout from "@/components/Layout/Layout"
+import RecipeCard from "@/components/Recipe/RecipeCard"
+import Search from "@/components/Search"
+
+import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
+
+/**
+ * @TODO: Fixed card size
+ * @TODO: Typography fixes
+ * @TODO: Image size fixes
+ * @TODO: Fix pagination
+ */
 
 // Will this be the search results??
 export default function RecipesPage({ recipes }) {
@@ -12,15 +22,17 @@ export default function RecipesPage({ recipes }) {
         All Recipes
       </Typography>
       <Search />
+      <br />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
           No recipes to show
         </Typography>
       )}
-
-      {recipes.map((rcp) => (
-        <RecipeItem key={rcp.id} rcp={rcp} />
-      ))}
+      <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>
+        {recipes.map((rcp) => (
+          <RecipeCard key={rcp.id} rcp={rcp} />
+        ))}
+      </Box>
     </Layout>
   )
 }
