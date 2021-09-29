@@ -11,6 +11,8 @@ export default function Footer() {
       <Link href="/privacy">Privacy Policy</Link>
       <br />
       <Link href="/contact">Contact Gusto</Link>
+      <br />
+      <Link href="/pantry">Pantry Page</Link>
     </footer>
   )
 }

@@ -4,14 +4,54 @@
       "id": "1",
       "name": "kyckling",
       "quantity": "500",
-      "category": "fridge",
+      "category": "all",
       "image": "",
       "user": "John Doe"
     },
     {
       "id": "2",
-      "name": "tomato",
+      "name": "tomater",
       "quantity": "350",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "3",
+      "name": "potatis",
+      "quantity": "1000",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "4",
+      "name": "lax",
+      "quantity": "600",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "5",
+      "name": "creme fraiché",
+      "quantity": "5",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "6",
+      "name": "lök",
+      "quantity": "3",
+      "category": "all",
+      "image": "",
+      "user": "John Doe"
+    },
+    {
+      "id": "7",
+      "name": "ostbågar",
+      "quantity": "500",
       "category": "all",
       "image": "",
       "user": "John Doe"

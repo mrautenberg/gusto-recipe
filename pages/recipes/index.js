@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout"
 import RecipeItem from "@/components/RecipeItem"
+import Search from "@/components/Search"
 import { API_URL } from "@/config/index"
 import Typography from "@mui/material/Typography"
 
@@ -10,6 +11,7 @@ export default function RecipesPage({ recipes }) {
       <Typography variant="h3" component="h1">
         All Recipes
       </Typography>
+      <Search />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
           No recipes to show
