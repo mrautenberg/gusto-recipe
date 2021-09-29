@@ -1,101 +1,19 @@
-import { useState } from "react"
-
-import Button from "@mui/material/Button"
-import ButtonGroup from "@mui/material/ButtonGroup"
-import Card from "@mui/material/Card"
-import CardMedia from "@mui/material/CardMedia"
-import Grid from "@mui/material/Grid"
-import Typography from "@mui/material/Typography"
-
 import { API_URL } from "@/config/index"
 import Layout from "@/components/Layout/Layout"
+import RecipeItem from "@/components/Recipe/RecipeItem"
+
+/**
+ * @TODO: Make img rounded (clip path or avatar?)
+ * @TODO: Resize buttons
+ * @TODO: Margins
+ *
+ *
+ *  */
 
 export default function RecipePage({ rcp }) {
-  const [showIngredients, setShowIngredients] = useState(true)
-
   return (
     <Layout>
-      <>
-        <Card>
-          {rcp.image && (
-            <CardMedia
-              component="img"
-              height="200"
-              image={rcp.image}
-              alt={rcp.title}
-            />
-          )}
-          <Typography variant="h3" component="h1" align="center" gutterBottom>
-            {rcp.title}
-          </Typography>
-        </Card>
-
-        <Grid>
-          <Grid item xs={12}>
-            <ButtonGroup
-              fullWidth
-              variant="contained"
-              aria-label="contained button group"
-            >
-              <Button>Ready in {rcp.minutes} </Button>
-              <Button>Ingredients 4/7</Button>
-            </ButtonGroup>
-          </Grid>
-          <Grid item xs={12}>
-            <ButtonGroup
-              variant="text"
-              aria-label="text button group"
-              fullWidth
-            >
-              <Button onClick={() => setShowIngredients(true)}>
-                Ingredients
-              </Button>
-              <Button onClick={() => setShowIngredients(false)}>
-                Do Like This
-              </Button>
-            </ButtonGroup>
-          </Grid>
-        </Grid>
-
-        <Typography color="secondary">
-          <Typography variant="h6" component="h3">
-            {rcp.portions} portions
-            <Button variant="contained" color="info">
-              +
-            </Button>
-            <Button variant="contained" color="info">
-              -
-            </Button>
-          </Typography>
-
-          {showIngredients ? (
-            <>
-              <Typography variant="h5" component="h2">
-                Ingredients:
-              </Typography>
-              {rcp.ingredients.map((r) => (
-                <li key={r.id}>{r}</li>
-              ))}
-            </>
-          ) : (
-            <>
-              <Typography variant="h5" component="h2">
-                Instructions
-              </Typography>
-              {rcp.instructions.map((r) => (
-                <li key={r.id}>{r}</li>
-              ))}
-            </>
-          )}
-
-          <Typography variant="h5" component="h2">
-            Author
-          </Typography>
-          <Typography variant="body1" component="p">
-            {rcp.author}
-          </Typography>
-        </Typography>
-      </>
+      <RecipeItem rcp={rcp} />
     </Layout>
   )
 }

@@ -27,16 +27,16 @@ export default function HomePage({ recipes }) {
         {recipes.map((rcp) => (
           <RecipeCard key={rcp.id} rcp={rcp} />
         ))}
-        <Grid item xs={12}>
-          {recipes.length > 0 && (
-            <Button fullWidth variant="contained">
-              <Link href="/recipes">
-                <a>See All recipes</a>
-              </Link>
-            </Button>
-          )}
-        </Grid>
       </Box>
+      <Grid item xs={12}>
+        {recipes.length > 0 && (
+          <Button fullWidth variant="contained">
+            <Link href="/recipes">
+              <a>See All recipes</a>
+            </Link>
+          </Button>
+        )}
+      </Grid>
     </Layout>
   )
 }

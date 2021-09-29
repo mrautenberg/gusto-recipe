@@ -4,6 +4,8 @@
 
 ### This is just a sandbox/learning project where I practice on implementing a Figma design & some new technologies I haven't worked with :)
 
+### Only done for mobile view due to assignment specs, so I didn't spend any time at all fixing or thinking about desktop
+
 ### Recipes come from:
 
 1. https://www.ica.se/recept/falukorv-med-snabbstuvade-makaroner-726267/
