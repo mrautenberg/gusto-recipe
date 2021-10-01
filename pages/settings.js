@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout/Layout"
 
-export default function AboutPage() {
+export default function SettingsPage() {
   return (
     <Layout title="About Gusto">
       <h1>About Gusto</h1>

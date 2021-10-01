@@ -1,11 +1,11 @@
 import * as React from "react"
+import { useRouter } from "next/router"
+
 import { styled, useTheme } from "@mui/material/styles"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import Drawer from "@mui/material/Drawer"
 import MuiAppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
-import CssBaseline from "@mui/material/CssBaseline"
 import List from "@mui/material/List"
 import Typography from "@mui/material/Typography"
 import Divider from "@mui/material/Divider"
@@ -16,8 +16,13 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 import ListItem from "@mui/material/ListItem"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import InboxIcon from "@mui/icons-material/MoveToInbox"
-import MailIcon from "@mui/icons-material/Mail"
+// Icons
+import HomeIcon from "@mui/icons-material/Home"
+import KitchenIcon from "@mui/icons-material/Kitchen"
+import SettingsIcon from "@mui/icons-material/Settings"
+import MenuBookIcon from "@mui/icons-material/MenuBook"
+import LogoutIcon from "@mui/icons-material/Logout"
+
 import Grid from "@mui/material/Grid"
 
 const drawerWidth = 240
@@ -79,21 +84,20 @@ export default function Header() {
     setOpen(false)
   }
 
+  const router = useRouter()
+
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          {/* <Typography variant="h6"  sx={{  }} component="div">
-            <ChevronLeftIcon />
-          </Typography> */}
           <Grid container>
             <Grid item xs={2}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
-                onClick={() => console.log("go back")}
+                // Add history to go back one page
+                onClick={() => router.push("/")}
                 sx={{ flexGrow: 1, ...(open && { display: "none" }) }}
               >
                 <ChevronLeftIcon />
@@ -138,18 +142,42 @@ export default function Header() {
             )}
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List>
-          {["Home", "Pantry", "Settings", "Recipes", "Sign Out"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          {/* Should be possible to map when refactoring */}
+          <ListItem onClick={() => router.push("/")}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => router.push("/recipes")}>
+            <ListItemIcon>
+              <MenuBookIcon />
+            </ListItemIcon>
+            <ListItemText primary="Recipes" />
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => router.push("/pantry")}>
+            <ListItemIcon>
+              <KitchenIcon />
+            </ListItemIcon>
+            <ListItemText primary="Pantry" />
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => router.push("/settings")}>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItem>
+          <Divider />
+          <ListItem onClick={() => console.log("SIGN OUT WILL BE ADDED LATER")}>
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary="Sign Out" />
+          </ListItem>
         </List>
       </Drawer>
     </Box>
