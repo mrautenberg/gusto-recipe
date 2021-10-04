@@ -13,7 +13,7 @@ export default function RecipeCard({ rcp }) {
             <CardMedia
               component="img"
               height="200"
-              image={rcp.image}
+              image={rcp.image.formats.thumbnail.url}
               alt={rcp.title}
             />
           </a>
@@ -23,7 +23,8 @@ export default function RecipeCard({ rcp }) {
           {rcp.title}
         </Typography>
         <Typography variant="body1" component="p">
-          5 out of {rcp.ingredients.length} ingredients
+          {/* Wrong number since it's a string and not an array */}5 out of{" "}
+          {rcp.ingredients.length} ingredients
         </Typography>
       </Card>
     </Grid>

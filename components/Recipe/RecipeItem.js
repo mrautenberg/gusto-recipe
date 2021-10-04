@@ -19,10 +19,11 @@ export default function RecipeItem({ rcp }) {
           <CardMedia
             component="img"
             height="200"
-            image={rcp.image}
+            image={rcp.image.formats.small.url}
             alt={rcp.title}
           />
         )}
+
         <Typography variant="h3" component="h1" align="center" gutterBottom>
           {rcp.title}
         </Typography>
@@ -73,9 +74,13 @@ export default function RecipeItem({ rcp }) {
               </Typography>
               <ul>
                 {/* Fix in a better way later, temp workaround */}
-                {rcp.ingredients.map((r, idx) => (
-                  <li key={idx}>{r}</li>
-                ))}
+                {
+                  // Map does not work anymore since it's a string and not list
+                  rcp.ingredients
+                  // .map((r, idx) => (
+                  //   <li key={idx}>{r}</li>
+                  // ))
+                }
               </ul>
             </>
           ) : (

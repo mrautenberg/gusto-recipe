@@ -43,11 +43,11 @@ export default function HomePage({ recipes }) {
 
 // Put method below function
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/recipes`)
+  const res = await fetch(`${API_URL}/recipes?_sort=title:ASC&_limit=4`)
   const recipes = await res.json()
 
   return {
-    props: { recipes: recipes.slice(0, 4) },
+    props: { recipes },
     revalidate: 1,
   }
 }

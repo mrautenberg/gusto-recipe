@@ -19,7 +19,7 @@ export default function RecipePage({ rcp }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/api/recipes`)
+  const res = await fetch(`${API_URL}/recipes`)
   const recipes = await res.json()
 
   const paths = recipes.map((rcp) => ({
@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(`${API_URL}/api/recipes/${slug}`)
+  const res = await fetch(`${API_URL}/recipes?slug=${slug}`)
   const recipe = await res.json()
 
   return {
