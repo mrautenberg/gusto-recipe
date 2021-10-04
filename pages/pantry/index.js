@@ -1,6 +1,8 @@
+import { API_URL } from "@/config/index"
+
 import Layout from "@/components/Layout/Layout"
 import PantryItem from "@/components/PantryItem"
-import { API_URL } from "@/config/index"
+
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
 import Button from "@mui/material/Button"
@@ -20,9 +22,14 @@ export default function MyPantryPage({ pantry }) {
           No Ingredients in your pantry - add some!
         </Typography>
       )}
-
+      {/* no big fan of the way to fetch but works as of now */}
       {pantry.map((ingr) => (
-        <PantryItem key={ingr.id} ingr={ingr} />
+        <PantryItem
+          key={ingr[1].id}
+          title={ingr[1].title}
+          quantity={ingr[1].quantity}
+          unit={ingr[1].unit}
+        />
       ))}
       <Grid container>
         <Grid item xs={12}>
@@ -42,11 +49,11 @@ export default function MyPantryPage({ pantry }) {
 
 // Put method below function
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/pantry`)
+  const res = await fetch(`${API_URL}/pantries`)
   const pantry = await res.json()
 
   return {
-    props: { pantry },
+    props: { pantry: Object.entries(pantry) },
     revalidate: 1,
   }
 }

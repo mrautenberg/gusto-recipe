@@ -39,7 +39,7 @@ export default function RecipesPage({ recipes }) {
 
 // Put method below function
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/recipes_sort=title:ASC`)
+  const res = await fetch(`${API_URL}/recipes?_sort=title:ASC`)
   const recipes = await res.json()
 
   return {

@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { API_URL } from "@/config/index"
 import Layout from "@/components/Layout/Layout"
-import Search from "@/components/Search"
+import SearchTest from "@/components/SearchTest"
 import RecipeCard from "@/components/Recipe/RecipeCard"
 
 import Box from "@mui/material/Box"
@@ -16,7 +16,7 @@ export default function HomePage({ recipes }) {
       <Typography variant="h3" component="h1">
         Welcome to Gusto
       </Typography>
-      <Search />
+      <SearchTest />
       <br />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
