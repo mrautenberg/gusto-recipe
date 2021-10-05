@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { API_URL } from "@/config/index"
 import Layout from "@/components/Layout/Layout"
-import SearchTest from "@/components/SearchTest"
+import Search from "@/components/Search"
 import RecipeCard from "@/components/Recipe/RecipeCard"
 
 import Box from "@mui/material/Box"
@@ -16,7 +16,7 @@ export default function HomePage({ recipes }) {
       <Typography variant="h3" component="h1">
         Welcome to Gusto
       </Typography>
-      <SearchTest />
+      <Search />
       <br />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
@@ -30,11 +30,11 @@ export default function HomePage({ recipes }) {
       </Box>
       <Grid item xs={12}>
         {recipes.length > 0 && (
-          <Button fullWidth variant="contained">
-            <Link href="/recipes">
+          <Link href="/recipes">
+            <Button fullWidth variant="contained">
               <a>See All recipes</a>
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         )}
       </Grid>
     </Layout>

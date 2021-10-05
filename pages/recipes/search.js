@@ -26,7 +26,7 @@ export default function SearchPage({ recipes }) {
       <Typography variant="h3" component="h1">
         Search Results for {router.query.term}
       </Typography>
-      <Search />
+      <Search label="Search recipes" />
       <br />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">

@@ -19,7 +19,7 @@ export default function RecipeItem({ rcp }) {
           <CardMedia
             component="img"
             height="200"
-            image={rcp.image.formats.small.url}
+            image={rcp.image.formats.thumbnail.url}
             alt={rcp.title}
           />
         )}
@@ -88,11 +88,7 @@ export default function RecipeItem({ rcp }) {
               <Typography variant="h5" component="h2">
                 Instructions
               </Typography>
-              <ol>
-                {rcp.instructions.map((r, idx) => (
-                  <li key={idx}>{r}</li>
-                ))}
-              </ol>
+              <ol>{rcp.instructions}</ol>
             </>
           )}
 
