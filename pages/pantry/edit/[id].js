@@ -6,15 +6,14 @@ import { API_URL } from "@/config/index"
 
 import Layout from "@/components/Layout/Layout"
 import Button from "@mui/material/Button"
-import Search from "@/components/Search"
 
-export default function AddToPantryPage() {
+export default function EditPantryPage({ item }) {
   const router = useRouter()
 
   const [values, setValues] = useState({
-    title: "",
-    quantity: "",
-    unit: "",
+    title: item.title,
+    quantity: item.quantity,
+    unit: item.unit,
   })
 
   const handleSubmit = async (e) => {
@@ -26,12 +25,11 @@ export default function AddToPantryPage() {
     )
 
     if (hasEmptyFields) {
-      // Add error message through mui or use toastify
       console.error("Please fill in all fields")
     }
 
-    const res = await fetch(`${API_URL}/pantries`, {
-      method: "POST",
+    const res = await fetch(`${API_URL}/pantries/${item.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,8 +40,7 @@ export default function AddToPantryPage() {
       console.error("Error")
     } else {
       const ingr = await res.json()
-      router.push(`/pantry`)
-      console.log(`You've added ${ingr} to your pantry`)
+      router.push(`/pantry/${ingr.slug}`)
     }
   }
 
@@ -54,10 +51,8 @@ export default function AddToPantryPage() {
   }
 
   return (
-    <Layout title="Add To Pantry">
-      <h1>Add To Pantry</h1>
-      <Search />
-      <br />
+    <Layout title="Edit ">
+      <h1>Edit Ingredient</h1>
       <form onSubmit={handleSubmit}>
         {/* Add grid */}
         <div className="styles.grid">
@@ -65,7 +60,6 @@ export default function AddToPantryPage() {
           <input
             type="text"
             id="title"
-            // We have the name attri so we don't have to change the name for every sinle input
             name="title"
             value={values.title}
             onChange={handleInputChange}
@@ -89,7 +83,7 @@ export default function AddToPantryPage() {
             onChange={handleInputChange}
           />
         </div>
-        <input type="submit" value="Add" />
+        <input type="submit" value="Update" />
       </form>
 
       <Button variant="contained" onClick={() => router.push("/pantry")}>
@@ -97,4 +91,15 @@ export default function AddToPantryPage() {
       </Button>
     </Layout>
   )
+}
+
+export async function getServerSideProps({ params: { id } }) {
+  const res = await fetch(`${API_URL}/pantries/${id}`)
+  const item = await res.json()
+
+  return {
+    props: {
+      item,
+    },
+  }
 }

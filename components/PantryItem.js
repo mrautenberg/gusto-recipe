@@ -12,8 +12,8 @@ export default function PantryItem(props) {
   const { title, quantity, unit, id } = props
   const router = useRouter()
 
+  // Move higher up and pass as props
   const deleteEvent = async () => {
-    console.log(title)
     if (confirm("Are you sure?")) {
       const res = await fetch(`${API_URL}/pantries/${id}`, {
         method: "DELETE",
@@ -46,7 +46,7 @@ export default function PantryItem(props) {
               <Button
                 variant="contained"
                 color="info"
-                onClick={() => console.log(`edit ${title}`)}
+                onClick={() => router.push(`/pantry/edit/${id}`)}
               >
                 <EditIcon />
               </Button>
