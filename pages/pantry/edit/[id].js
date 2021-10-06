@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
-import Link from "next/link"
 
 import { API_URL } from "@/config/index"
 
@@ -51,7 +50,7 @@ export default function EditPantryPage({ item }) {
   }
 
   return (
-    <Layout title="Edit ">
+    <Layout>
       <h1>Edit Ingredient</h1>
       <form onSubmit={handleSubmit}>
         {/* Add grid */}
