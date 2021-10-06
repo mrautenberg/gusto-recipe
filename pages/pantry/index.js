@@ -26,6 +26,7 @@ export default function MyPantryPage({ pantry }) {
       {pantry.map((ingr) => (
         <PantryItem
           key={ingr[1].id}
+          id={ingr[1].id}
           title={ingr[1].title}
           quantity={ingr[1].quantity}
           unit={ingr[1].unit}

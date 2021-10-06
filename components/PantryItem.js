@@ -5,9 +5,28 @@ import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
+import { API_URL } from "../config/index"
+import { useRouter } from "next/router"
 
 export default function PantryItem(props) {
-  const { title, quantity, unit } = props
+  const { title, quantity, unit, id } = props
+  const router = useRouter()
+
+  const deleteEvent = async () => {
+    console.log(title)
+    if (confirm("Are you sure?")) {
+      const res = await fetch(`${API_URL}/pantries/${id}`, {
+        method: "DELETE",
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        console.error(data.message)
+      } else {
+        router.push("/pantry")
+      }
+    }
+  }
 
   return (
     <>
@@ -31,11 +50,7 @@ export default function PantryItem(props) {
               >
                 <EditIcon />
               </Button>
-              <Button
-                variant="contained"
-                color="error"
-                onClick={() => console.log(`delete ${title}`)}
-              >
+              <Button variant="contained" color="error" onClick={deleteEvent}>
                 <DeleteIcon />
               </Button>
             </Grid>
