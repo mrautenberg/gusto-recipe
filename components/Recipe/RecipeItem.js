@@ -72,15 +72,10 @@ export default function RecipeItem({ rcp }) {
               <Typography variant="h5" component="h2">
                 Ingredients:
               </Typography>
-              <ul>
-                {/* Fix in a better way later, temp workaround */}
-                {
-                  // Map does not work anymore since it's a string and not list
-                  rcp.ingredients
-                  // .map((r, idx) => (
-                  //   <li key={idx}>{r}</li>
-                  // ))
-                }
+              <ul style={{ listStyle: "none" }}>
+                {rcp.ingredients.split(",").map((r) => (
+                  <li key={r.id}>{r}</li>
+                ))}
               </ul>
             </>
           ) : (
@@ -88,7 +83,11 @@ export default function RecipeItem({ rcp }) {
               <Typography variant="h5" component="h2">
                 Instructions
               </Typography>
-              <ol>{rcp.instructions}</ol>
+              <ol style={{ listStyle: "none" }}>
+                {rcp.instructions.split("\n").map((r) => (
+                  <li key={r.id}>{r}</li>
+                ))}
+              </ol>
             </>
           )}
 

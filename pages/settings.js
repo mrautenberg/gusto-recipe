@@ -1,47 +1,102 @@
+import { makeStyles } from "@mui/styles"
+
 import Layout from "@/components/Layout/Layout"
 import Link from "next/link"
 
+import Button from "@mui/material/Button"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
-import Button from "@mui/material/Button"
+import CardMedia from "@mui/material/CardMedia"
+import Grid from "@mui/material/Grid"
+import Divider from "@mui/material/Divider"
 import Typography from "@mui/material/Typography"
 
+const useStyles = makeStyles({
+  smallCard: {
+    padding: "0.5em",
+    textAlign: "center",
+  },
+  cardLink: {
+    textDecoration: "none",
+    color: "black",
+  },
+})
+
 export default function SettingsPage() {
+  const classes = useStyles()
+
   return (
     <Layout title="Settings">
-      <h1>Settings</h1>
-      {/* change card type and add img */}
+      <Typography sx={{ marginBottom: "1.5rem" }} variant="h3" component="h1">
+        Settings
+      </Typography>
+
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            My Profile
-          </Typography>
-          <Typography variant="h5" component="div">
-            Name Name
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            myname@email.com
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            phone: 123 45 67
-          </Typography>
-          <Typography variant="body2">
-            address: Street 123
-            <br />
-            city: Metropolis
-            <br />
-            country: Roman Empire
-          </Typography>
+          <Grid container>
+            <Grid xs={4}>
+              <CardMedia
+                sx={{ borderRadius: "10px", marginTop: "1rem" }}
+                component="img"
+                height="130"
+                image={"images/avatar.png"}
+                alt=""
+              />
+            </Grid>
+            <Grid xs={1} />
+            <Grid xs={7}>
+              <Typography variant="h6" component="div" fontWeight="bold">
+                Ditt Namn
+              </Typography>
+              <Typography
+                sx={{ mb: 1.5 }}
+                variant="body1"
+                gutterBottom
+                color="text.secondary"
+              >
+                myname@email.com
+              </Typography>
+              <Divider />
+              <Typography
+                variant="body2"
+                fontWeight="bold"
+                sx={{ mb: 0.5, mt: 0.5 }}
+                color="text.secondary"
+              >
+                070 123 45 67
+                <Divider />
+              </Typography>
+              <Typography variant="body2" component="p">
+                Storgatan 10
+              </Typography>
+              <Typography variant="body2" component="p">
+                Storstaden
+              </Typography>
+              <Typography variant="body2" component="p">
+                Sverige
+              </Typography>
+            </Grid>
+          </Grid>
         </CardContent>
         <CardActions>
-          <Button size="small">Change</Button>
+          <Button disabled fullWidth variant="contained">
+            Update
+          </Button>
         </CardActions>
       </Card>
       <br />
-      <Link href="/privacy">Privacy Policy</Link>
+      <Card className={classes.smallCard}>
+        <Link href="/privacy">
+          <a className={classes.cardLink}>Integritetspolicy </a>
+        </Link>
+      </Card>
       <br />
-      <Link href="/contact">Contact Us</Link>
+      <Card className={classes.smallCard}>
+        <Link href="/contact">
+          <a className={classes.cardLink}>Kontakta Oss</a>
+        </Link>
+      </Card>
     </Layout>
   )
 }
