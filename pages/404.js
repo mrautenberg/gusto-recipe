@@ -6,12 +6,6 @@ import Button from "@mui/material/Button"
 import Link from "next/link"
 import Layout from "@/components/Layout/Layout"
 
-/*
-  @TODO: Alignment and Search Icon
-  @TODO: Text margin between sections
-  @TODO: Back to start button
-*/
-
 const useStyles = makeStyles({
   contentContainer: {
     display: "flex",
@@ -34,7 +28,7 @@ export default function NotFoundPage() {
           <SearchIcon sx={{ fontSize: 200 }} />
 
           <Typography variant="h3" component="h1">
-            Item not found
+            Not found
           </Typography>
           <Typography
             variant="body1"
@@ -42,7 +36,7 @@ export default function NotFoundPage() {
             textAlign="center"
             sx={{ margin: "1.5rem 0" }}
           >
-            Item can not be found, please try searching for something else.
+            Please try searching for something else.
           </Typography>
           <Button fullWidth>
             <Link href="/">

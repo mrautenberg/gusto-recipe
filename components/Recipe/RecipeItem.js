@@ -66,6 +66,7 @@ export default function RecipeItem({ rcp }) {
             </Button>
           </ButtonGroup>
         </Grid>
+        {/* @TODO: Update and fix list to a proper mui List */}
         <Grid item xs={12}>
           {showIngredients ? (
             <>

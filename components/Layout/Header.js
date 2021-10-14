@@ -91,7 +91,7 @@ export default function Header() {
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <Grid container>
-            <Grid item xs={2}>
+            <Grid item xs={10}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -103,12 +103,12 @@ export default function Header() {
                 <ChevronLeftIcon />
               </IconButton>
             </Grid>
-            <Grid item xs={8} />
-            <Grid item xs={2}>
+            <Grid
+              item xs={2}
+              sx={{ display: "flex", justifyContent: "flex-end" }}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                edge="end"
                 onClick={handleDrawerOpen}
                 sx={{ ...(open && { display: "none" }) }}
               >

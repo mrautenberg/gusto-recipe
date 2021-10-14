@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
-import Link from "next/link"
 
 import { API_URL } from "@/config/index"
 
 import Layout from "@/components/Layout/Layout"
+
 import Button from "@mui/material/Button"
-import Search from "@/components/Search"
+import Grid from "@mui/material/Grid"
+import TextField from "@mui/material/TextField"
+import Typography from "@mui/material/Typography"
 
 export default function AddToPantryPage() {
   const router = useRouter()
@@ -55,46 +57,59 @@ export default function AddToPantryPage() {
 
   return (
     <Layout title="Add To Pantry">
-      <h1>Add To Pantry</h1>
-      <Search />
-      <br />
-      <form onSubmit={handleSubmit}>
-        {/* Add grid */}
-        <div className="styles.grid">
-          <label htmlFor="title">Ingredient</label>
-          <input
-            type="text"
-            id="title"
-            // We have the name attri so we don't have to change the name for every sinle input
-            name="title"
-            value={values.title}
-            onChange={handleInputChange}
-          />
-          <br />
-          <label htmlFor="quantity">Quantity</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={values.quantity}
-            onChange={handleInputChange}
-          />
-          <br />
-          <label htmlFor="unit">Unit</label>
-          <input
-            type="text"
-            id="unit"
-            name="unit"
-            value={values.unit}
-            onChange={handleInputChange}
-          />
-        </div>
-        <input type="submit" value="Add" />
-      </form>
+      <Grid container>
+        <Typography
+          sx={{ marginBottom: "1.5rem" }}
+          variant="h3"
+          component="h1"
+        >
+          Add To Pantry
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Grid container xs={12}>
+            <Grid item xs={4}>
+              <label htmlFor="title">Ingredient</label>
+            </Grid>
+            <Grid item xs={8}>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={values.title}
+                onChange={handleInputChange}
+              />
+            </Grid>
+          </Grid>
+          <Grid container xs={12}>
+            <label htmlFor="quantity">Quantity</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={values.quantity}
+              onChange={handleInputChange}
+            />
+          </Grid>
+          <Grid container xs={12}>
+            <label htmlFor="unit">Unit</label>
+            <input
+              type="text"
+              id="unit"
+              name="unit"
+              value={values.unit}
+              onChange={handleInputChange}
+            />
+          </Grid>
+          <input type="submit" value="Add" />
+        </form>
 
-      <Button variant="contained" onClick={() => router.push("/pantry")}>
-        Back to Pantry
-      </Button>
+        <Button
+          variant="contained"
+          onClick={() => router.push("/pantry")}
+        >
+          Back to Pantry
+        </Button>
+      </Grid>
     </Layout>
   )
 }

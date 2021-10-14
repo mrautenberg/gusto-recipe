@@ -31,7 +31,7 @@ export default function HomePage({ recipes }) {
       <Grid item xs={12}>
         {recipes.length > 0 && (
           <Link href="/recipes">
-            <Button fullWidth variant="contained">
+            <Button fullWidth variant="contained" sx={{ marginTop: "1rem" }}>
               <a>See All recipes</a>
             </Button>
           </Link>
