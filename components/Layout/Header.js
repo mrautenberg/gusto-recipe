@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useContext } from "react"
 import { useRouter } from "next/router"
 
 import { styled, useTheme } from "@mui/material/styles"
@@ -24,6 +25,8 @@ import MenuBookIcon from "@mui/icons-material/MenuBook"
 import LogoutIcon from "@mui/icons-material/Logout"
 
 import Grid from "@mui/material/Grid"
+
+import AuthContext from "@/context/AuthContext"
 
 const drawerWidth = 240
 
@@ -73,6 +76,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }))
 
 export default function Header() {
+  const { user, logout } = useContext(AuthContext)
+
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
 
@@ -142,42 +147,53 @@ export default function Header() {
             )}
           </IconButton>
         </DrawerHeader>
+
         <List>
-          {/* Should be possible to map when refactoring */}
-          <ListItem onClick={() => router.push("/")}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => router.push("/recipes")}>
-            <ListItemIcon>
-              <MenuBookIcon />
-            </ListItemIcon>
-            <ListItemText primary="Recipes" />
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => router.push("/pantry")}>
-            <ListItemIcon>
-              <KitchenIcon />
-            </ListItemIcon>
-            <ListItemText primary="Pantry" />
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => router.push("/settings")}>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => console.log("SIGN OUT WILL BE ADDED LATER")}>
-            <ListItemIcon>
-              <LogoutIcon />
-            </ListItemIcon>
-            <ListItemText primary="Sign Out" />
-          </ListItem>
+          {user ? <>
+            {/* Should be possible to map when refactoring */}
+            <ListItem onClick={() => router.push("/")}>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => router.push("/recipes")}>
+              <ListItemIcon>
+                <MenuBookIcon />
+              </ListItemIcon>
+              <ListItemText primary="Recipes" />
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => router.push("/pantry")}>
+              <ListItemIcon>
+                <KitchenIcon />
+              </ListItemIcon>
+              <ListItemText primary="Pantry" />
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => router.push("/settings")}>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Settings" />
+            </ListItem>
+            <Divider />
+            <ListItem onClick={() => logout()}>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary="Sign Out" />
+            </ListItem>
+          </> : <>
+            <ListItem onClick={() => router.push("/account/login")}>
+              <ListItemIcon>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary="Login" />
+            </ListItem>
+          </>}
+
         </List>
       </Drawer>
     </Box>

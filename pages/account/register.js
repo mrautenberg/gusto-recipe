@@ -1,4 +1,6 @@
 import { useState, useEffect, useContext } from "react"
+import AuthContext from "@/context/AuthContext"
+
 import Link from "next/link"
 import Layout from "@/components/Layout/Layout"
 
@@ -8,6 +10,9 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("")
   const [passwordConfirm, setPasswordConfirm] = useState("")
 
+  const { register, error } = useContext(AuthContext)
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -16,7 +21,7 @@ export default function RegisterPage() {
       return
     }
 
-    console.log({ email, username, password });
+    register({ email, username, password });
   }
 
   return (
