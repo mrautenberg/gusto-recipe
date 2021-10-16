@@ -12,6 +12,7 @@ export default function RegisterPage() {
 
   const { register, error } = useContext(AuthContext)
 
+  useEffect(() => error && alert(error))
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -71,7 +72,7 @@ export default function RegisterPage() {
           </div>
 
           {/* create submit btn */}
-          <input type="submit" value="Login" />
+          <input type="submit" value="Register" />
         </form>
 
         <p>

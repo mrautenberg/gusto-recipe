@@ -19,7 +19,7 @@ export default function RecipeItem({ rcp }) {
           <CardMedia
             component="img"
             height="200"
-            image={rcp.image.formats.thumbnail.url}
+            // image={rcp.image.formats.thumbnail.url}
             alt={rcp.title}
           />
         )}

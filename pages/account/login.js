@@ -9,6 +9,9 @@ export default function LoginPage() {
 
   const { login, error } = useContext(AuthContext)
 
+  // Change for Gusto, copied from course
+  useEffect(() => error && alert(error))
+
   const handleSubmit = (e) => {
     e.preventDefault()
     login({ email, password });
