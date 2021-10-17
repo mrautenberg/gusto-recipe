@@ -26,21 +26,24 @@ const useStyles = makeStyles({
 export default function PantryItem(props) {
   const classes = useStyles()
 
-  const { title, quantity, unit, id } = props
+  const { title, quantity, unit, id, } = props
   const router = useRouter()
 
   // Move higher up and pass as props
-  const deleteEvent = async () => {
+  const deleteItem = async (id) => {
     if (confirm("Are you sure?")) {
       const res = await fetch(`${API_URL}/pantries/${id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
       const data = await res.json()
 
       if (!res.ok) {
         console.error(data.message)
       } else {
-        router.push("/pantry")
+        router.reload()
       }
     }
   }
@@ -72,7 +75,7 @@ export default function PantryItem(props) {
                 variant="contained"
                 aria-label="delete"
                 color="error"
-                onClick={deleteEvent}
+              // onClick={deleteItem}
               >
                 <DeleteIcon />
               </IconButton>

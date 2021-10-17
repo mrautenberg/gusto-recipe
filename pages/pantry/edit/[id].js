@@ -1,12 +1,13 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { parseCookies } from "@/helpers/index"
 
 import { API_URL } from "@/config/index"
 
 import Layout from "@/components/Layout/Layout"
 import Button from "@mui/material/Button"
 
-export default function EditPantryPage({ item }) {
+export default function EditPantryPage({ item, token }) {
   const router = useRouter()
 
   const [values, setValues] = useState({
@@ -31,12 +32,17 @@ export default function EditPantryPage({ item }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(values),
     })
 
     if (!res.ok) {
-      console.error("Error")
+      if (res.status === 403 || res.status === 401) {
+        alert("Unauthorized")
+        return
+      }
+      alert("Error")
     } else {
       const ingr = await res.json()
       router.push(`/pantry/${ingr.slug}`)
@@ -92,13 +98,16 @@ export default function EditPantryPage({ item }) {
   )
 }
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
+  const { token } = parseCookies(req)
+
   const res = await fetch(`${API_URL}/pantries/${id}`)
   const item = await res.json()
 
   return {
     props: {
       item,
+      token
     },
   }
 }

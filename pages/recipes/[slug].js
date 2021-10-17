@@ -2,14 +2,6 @@ import { API_URL } from "@/config/index"
 import Layout from "@/components/Layout/Layout"
 import RecipeItem from "@/components/Recipe/RecipeItem"
 
-/**
- * @TODO: Make img rounded (clip path or avatar?)
- * @TODO: Resize buttons
- * @TODO: Margins
- *
- *
- *  */
-
 export default function RecipePage({ rcp }) {
   return (
     <Layout>

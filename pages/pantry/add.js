@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 
+import { parseCookies } from "@/helpers/index"
 import { API_URL } from "@/config/index"
 
 import Layout from "@/components/Layout/Layout"
@@ -10,7 +11,7 @@ import Grid from "@mui/material/Grid"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 
-export default function AddToPantryPage() {
+export default function AddToPantryPage({ token }) {
   const router = useRouter()
 
   const [values, setValues] = useState({
@@ -29,19 +30,25 @@ export default function AddToPantryPage() {
 
     if (hasEmptyFields) {
       // Add error message through mui or use toastify
-      console.error("Please fill in all fields")
+      alert("Please fill in all fields")
     }
 
     const res = await fetch(`${API_URL}/pantries`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(values),
     })
 
     if (!res.ok) {
-      console.error("Error")
+      if (res.status === 401 || res.status === 403) {
+        alert("No token included")
+        return
+      }
+
+      alert("Something went wrong")
     } else {
       const ingr = await res.json()
       router.push(`/pantry`)
@@ -112,4 +119,14 @@ export default function AddToPantryPage() {
       </Grid>
     </Layout>
   )
+}
+
+export async function getServerSideProps({ req }) {
+  const { token } = parseCookies(req)
+
+  return {
+    props: {
+      token
+    }
+  }
 }
