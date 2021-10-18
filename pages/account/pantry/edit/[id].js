@@ -45,7 +45,7 @@ export default function EditPantryPage({ item, token }) {
       alert("Error")
     } else {
       const ingr = await res.json()
-      router.push(`/pantry/${ingr.slug}`)
+      router.push(`/account/pantry`)
     }
   }
 

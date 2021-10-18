@@ -1,4 +1,5 @@
 import { API_URL } from "@/config/index"
+import { parseCookies } from "@/helpers/index"
 
 import Layout from "@/components/Layout/Layout"
 import PantryItem from "@/components/PantryItem"
@@ -8,8 +9,26 @@ import Grid from "@mui/material/Grid"
 import Button from "@mui/material/Button"
 import { useRouter } from "next/router"
 
-export default function MyPantryPage({ pantry }) {
+export default function MyPantryPage({ pantry, token }) {
   const router = useRouter()
+
+  const deleteItem = async (id) => {
+    if (confirm("Are you sure?")) {
+      const res = await fetch(`${API_URL}/pantries/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        console.error(data.message)
+      } else {
+        router.reload()
+      }
+    }
+  }
 
   return (
     <Layout>
@@ -25,11 +44,12 @@ export default function MyPantryPage({ pantry }) {
       <>
         {pantry.map((ingr) => (
           <PantryItem
-            key={ingr[1].id}
-            id={ingr[1].id}
-            title={ingr[1].title}
-            quantity={ingr[1].quantity}
-            unit={ingr[1].unit}
+            key={ingr.id}
+            id={ingr.id}
+            title={ingr.title}
+            quantity={ingr.quantity}
+            unit={ingr.unit}
+            handleDelete={deleteItem}
           />
         ))}
       </>
@@ -50,12 +70,32 @@ export default function MyPantryPage({ pantry }) {
 }
 
 // Put method below function
-export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/pantries`)
+// export async function getStaticProps() {
+//   const res = await fetch(`${API_URL}/pantries`)
+//   const pantry = await res.json()
+
+//   return {
+//     props: { pantry: Object.entries(pantry) },
+//     revalidate: 1,
+//   }
+// }
+
+export async function getServerSideProps({ req }) {
+  const { token } = parseCookies(req)
+
+  const res = await fetch(`${API_URL}/pantries/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+
   const pantry = await res.json()
 
   return {
-    props: { pantry: Object.entries(pantry) },
-    revalidate: 1,
+    props: {
+      pantry,
+      token
+    }
   }
 }

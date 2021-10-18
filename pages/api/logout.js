@@ -1,8 +1,4 @@
-// Get info about user with the help of cookie
-// & jwt token
-
 import cookie from "cookie"
-import { API_URL } from "@/config/index"
 
 export default async (req, res) => {
   if (req.method === "POST") {

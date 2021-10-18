@@ -165,7 +165,7 @@ export default function Header() {
               <ListItemText primary="Recipes" />
             </ListItem>
             <Divider />
-            <ListItem onClick={() => router.push("/pantry")}>
+            <ListItem onClick={() => router.push("/account/pantry")}>
               <ListItemIcon>
                 <KitchenIcon />
               </ListItemIcon>

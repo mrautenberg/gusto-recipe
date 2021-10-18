@@ -1,17 +1,14 @@
-// Get info about user with the help of cookie
-// & jwt token
-
 import cookie from "cookie"
 import { API_URL } from "@/config/index"
 
 export default async (req, res) => {
   if (req.method === "GET") {
+
     if (!req.headers.cookie) {
       res.status(403).json({ message: "Not Authorized" })
       return
     }
 
-    // Put token into variable so we can send it to strapi
     const { token } = cookie.parse(req.headers.cookie)
 
     const strapiRes = await fetch(`${API_URL}/users/me`, {

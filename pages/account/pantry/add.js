@@ -112,7 +112,7 @@ export default function AddToPantryPage({ token }) {
 
         <Button
           variant="contained"
-          onClick={() => router.push("/pantry")}
+          onClick={() => router.push("account/pantry")}
         >
           Back to Pantry
         </Button>

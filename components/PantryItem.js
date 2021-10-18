@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles"
 
-import { API_URL } from "../config/index"
+import { parseCookies } from "@/helpers/index";
+import { API_URL } from "@/config/index"
 import { useRouter } from "next/router"
 
 import Grid from "@mui/material/Grid"
@@ -26,27 +27,10 @@ const useStyles = makeStyles({
 export default function PantryItem(props) {
   const classes = useStyles()
 
-  const { title, quantity, unit, id, } = props
+  const { title, quantity, unit, id, token, ingr, handleDelete } = props
+
+  console.log(id)
   const router = useRouter()
-
-  // Move higher up and pass as props
-  const deleteItem = async (id) => {
-    if (confirm("Are you sure?")) {
-      const res = await fetch(`${API_URL}/pantries/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      const data = await res.json()
-
-      if (!res.ok) {
-        console.error(data.message)
-      } else {
-        router.reload()
-      }
-    }
-  }
 
   return (
     <>
@@ -67,7 +51,7 @@ export default function PantryItem(props) {
                 aria-label="edit"
                 size="small"
                 color="info"
-                onClick={() => router.push(`/pantry/edit/${id}`)}
+                onClick={() => router.push(`pantry/edit/${id}`)}
               >
                 <EditIcon />
               </IconButton>
@@ -75,7 +59,7 @@ export default function PantryItem(props) {
                 variant="contained"
                 aria-label="delete"
                 color="error"
-                onClick={deleteItem}
+                onClick={() => handleDelete(id)}
               >
                 <DeleteIcon />
               </IconButton>
@@ -86,3 +70,4 @@ export default function PantryItem(props) {
     </>
   )
 }
+
