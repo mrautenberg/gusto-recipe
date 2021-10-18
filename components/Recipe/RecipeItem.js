@@ -9,6 +9,13 @@ import Grid from "@mui/material/Grid"
 import RemoveIcon from "@mui/icons-material/Remove"
 import Typography from "@mui/material/Typography"
 
+/**
+ *  @TODO: Render a proper mui list for ingredients/how to
+ *  @TODO: Fix pagination --> infininte scroll?
+ * 
+ * 
+*/
+
 export default function RecipeItem({ rcp }) {
   const [showIngredients, setShowIngredients] = useState(true)
 
@@ -19,12 +26,17 @@ export default function RecipeItem({ rcp }) {
           <CardMedia
             component="img"
             height="200"
-            // image={rcp.image.formats.thumbnail.url}
+            image={rcp.image.formats.thumbnail.url}
             alt={rcp.title}
           />
         )}
 
-        <Typography variant="h3" component="h1" align="center" gutterBottom>
+        <Typography
+          variant="h3"
+          component="h1"
+          align="center"
+          gutterBottom
+        >
           {rcp.title}
         </Typography>
       </Card>
@@ -66,7 +78,6 @@ export default function RecipeItem({ rcp }) {
             </Button>
           </ButtonGroup>
         </Grid>
-        {/* @TODO: Update and fix list to a proper mui List */}
         <Grid item xs={12}>
           {showIngredients ? (
             <>

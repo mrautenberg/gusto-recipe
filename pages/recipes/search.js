@@ -11,13 +11,9 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 
 /**
- * @TODO: Fixed card size
- * @TODO: Typography fixes
- * @TODO: Image size fixes
- * @TODO: Fix pagination
- */
+ *  @TODO: Fixes from index.js can be used here too
+*/
 
-// Will this be the search results??
 export default function SearchPage({ recipes }) {
   const router = useRouter()
 
@@ -42,7 +38,6 @@ export default function SearchPage({ recipes }) {
   )
 }
 
-// Put method below function
 export async function getServerSideProps({ query: { term } }) {
   const query = qs.stringify({
     _where: {

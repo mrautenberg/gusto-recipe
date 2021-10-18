@@ -2,6 +2,8 @@ import Link from "next/link"
 
 import { PER_PAGE } from "@/config/index"
 
+// @TODO: Update to infinite scroll if possible
+
 export default function Pagination({ page, total }) {
   const lastPage = Math.ceil(total / PER_PAGE)
 

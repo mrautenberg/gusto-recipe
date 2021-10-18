@@ -75,7 +75,7 @@ export default function PantryItem(props) {
                 variant="contained"
                 aria-label="delete"
                 color="error"
-              // onClick={deleteItem}
+                onClick={deleteItem}
               >
                 <DeleteIcon />
               </IconButton>

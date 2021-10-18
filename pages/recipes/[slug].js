@@ -1,4 +1,5 @@
 import { API_URL } from "@/config/index"
+
 import Layout from "@/components/Layout/Layout"
 import RecipeItem from "@/components/Recipe/RecipeItem"
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
   const recipes = await res.json()
 
   const paths = recipes.map((rcp) => ({
-    params: { slug: rcp.slug },
+    params: { slug: rcp.slug.toString() },
   }))
 
   return {

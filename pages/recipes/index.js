@@ -9,13 +9,10 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 
 /**
- * @TODO: Fixed card size
- * @TODO: Typography fixes
- * @TODO: Image size fixes
- * @TODO: Fix pagination
- */
+ * @TODO: Fix pagination --> infininte scroll?
+ * @TODO: Display on different screen sizes
+*/
 
-// Will this be the search results??
 export default function RecipesPage({ recipes, page, total }) {
   return (
     <Layout>
@@ -29,7 +26,11 @@ export default function RecipesPage({ recipes, page, total }) {
           No recipes to show
         </Typography>
       )}
-      <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(2, 1fr)"
+        gap={3}
+      >
         {recipes.map((rcp) => (
           <RecipeCard key={rcp.id} rcp={rcp} />
         ))}
@@ -39,16 +40,12 @@ export default function RecipesPage({ recipes, page, total }) {
   )
 }
 
-// Put method below function
 export async function getServerSideProps({ query: { page = 1 } }) {
-  // Calculate start page (+ turns into num)
   const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE
 
-  // Fetch total/count
   const totalRes = await fetch(`${API_URL}/recipes/count`)
   const total = await totalRes.json()
 
-  // Fetch recipes
   const recipeRes = await fetch(
     `${API_URL}/recipes?_sort=title:ASC&_limit=${PER_PAGE}&_start=${start}`
   )
