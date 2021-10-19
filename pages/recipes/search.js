@@ -1,5 +1,6 @@
 import qs from "qs"
 import { useRouter } from "next/router"
+import { makeStyles } from "@mui/styles"
 
 import { API_URL } from "@/config/index"
 
@@ -10,26 +11,56 @@ import Search from "@/components/Search"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 
-/**
- *  @TODO: Fixes from index.js can be used here too
-*/
+const useStyles = makeStyles({
+  header: {
+    margin: "1.5rem 0"
+  },
+  cardPadding: {
+    padding: "1rem"
+  },
+  marginTop: {
+    marginTop: "1rem"
+  },
+  btnLarge: {
+    padding: "1em",
+    marginTop: "2rem",
+    borderRadius: "40px",
+  }
+})
 
 export default function SearchPage({ recipes }) {
   const router = useRouter()
+  const classes = useStyles()
 
   return (
     <Layout title="Search results">
       <Typography variant="h3" component="h1">
-        Search Results for {router.query.term}
+        Search Results
+      </Typography>
+      <Typography
+        variant="h5"
+        component="h2"
+        className={classes.marginTop}
+      >
+        Search term: <b>{router.query.term.toLowerCase()}</b>
       </Typography>
       <Search label="Search recipes" />
-      <br />
       {recipes.length === 0 && (
-        <Typography variant="h6" component="h3">
-          No recipes to show
+        <Typography
+          variant="h6"
+          component="h3"
+          className={classes.marginTop}
+          sx={{ textAlign: "center" }}
+        >
+          No recipes found, please try searching for something else.
         </Typography>
       )}
-      <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(2, 1fr)"
+        gap={3}
+        className={classes.marginTop}
+      >
         {recipes.map((rcp) => (
           <RecipeCard key={rcp.id} rcp={rcp} />
         ))}

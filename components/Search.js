@@ -1,16 +1,32 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { makeStyles } from "@mui/styles"
 
-// mui comps & layout
 import TextField from "@mui/material/TextField"
-import Box from "@mui/material/Box"
+import InputAdornment from '@mui/material/InputAdornment';
 
-// Icons
-import FilterListIcon from "@mui/icons-material/FilterList"
 import SearchIcon from "@mui/icons-material/Search"
 
-// @TODO: Take in props for label if search added in pantry
+const useStyles = makeStyles({
+  header: {
+    margin: "1.5rem 0"
+  },
+  cardPadding: {
+    padding: "1rem"
+  },
+  marginTop: {
+    marginTop: "1rem"
+  },
+  btnLarge: {
+    padding: "1em",
+    marginTop: "2rem",
+    borderRadius: "40px",
+  }
+})
+
 export default function Search() {
+  const classes = useStyles()
+
   const [term, setTerm] = useState("")
   const [label, setLabel] = useState("Search recipe")
   const router = useRouter()
@@ -24,19 +40,23 @@ export default function Search() {
   }
 
   return (
-    <>
-      <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-        <form onSubmit={handleSubmit}>
-          <SearchIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-          <TextField
-            id="input-with-sx"
-            onChange={(e) => setTerm(e.target.value)}
-            label={label}
-            variant="standard"
-          />
-          <FilterListIcon onClick={() => router.push("/recipes/filter")} />
-        </form>
-      </Box>
-    </>
+    <div className={classes.marginTop}>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          onChange={(e) => setTerm(e.target.value)}
+          label={label}
+          fullWidth
+          placeholder="Search"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          variant="outlined"
+        />
+      </form>
+    </div>
   )
 }
