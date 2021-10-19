@@ -40,7 +40,6 @@ export default function MyPantryPage({ pantry, token }) {
           No Ingredients in your pantry - add some!
         </Typography>
       )}
-      {/* no big fan of the way to fetch but works as of now */}
       <>
         {pantry.map((ingr) => (
           <PantryItem
@@ -68,17 +67,6 @@ export default function MyPantryPage({ pantry, token }) {
     </Layout>
   )
 }
-
-// Put method below function
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/pantries`)
-//   const pantry = await res.json()
-
-//   return {
-//     props: { pantry: Object.entries(pantry) },
-//     revalidate: 1,
-//   }
-// }
 
 export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req)

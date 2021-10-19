@@ -1,7 +1,5 @@
 import { makeStyles } from "@mui/styles"
 
-import { parseCookies } from "@/helpers/index";
-import { API_URL } from "@/config/index"
 import { useRouter } from "next/router"
 
 import Grid from "@mui/material/Grid"
@@ -25,11 +23,9 @@ const useStyles = makeStyles({
 })
 
 export default function PantryItem(props) {
+  const { title, quantity, unit, id, handleDelete } = props
+
   const classes = useStyles()
-
-  const { title, quantity, unit, id, token, ingr, handleDelete } = props
-
-  console.log(id)
   const router = useRouter()
 
   return (
