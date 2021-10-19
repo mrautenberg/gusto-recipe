@@ -1,17 +1,37 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { makeStyles } from "@mui/styles"
+import Link from "next/link"
 
 import { parseCookies } from "@/helpers/index"
 import { API_URL } from "@/config/index"
-
 import Layout from "@/components/Layout/Layout"
 
 import Button from "@mui/material/Button"
-import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
+import InputLabel from "@mui/material/InputLabel"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
 
+const useStyles = makeStyles({
+  header: {
+    margin: "1.5rem 0"
+  },
+  cardPadding: {
+    padding: "1rem"
+  },
+  marginTop: {
+    marginTop: "1rem"
+  },
+  btnLarge: {
+    padding: "1em",
+    marginTop: "2rem",
+    borderRadius: "40px",
+  }
+})
+
 export default function AddToPantryPage({ token }) {
+  const classes = useStyles()
   const router = useRouter()
 
   const [values, setValues] = useState({
@@ -23,14 +43,13 @@ export default function AddToPantryPage({ token }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Validation (if true we want an error)
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
     )
 
     if (hasEmptyFields) {
-      // Add error message through mui or use toastify
       alert("Please fill in all fields")
+      return
     }
 
     const res = await fetch(`${API_URL}/pantries`, {
@@ -49,75 +68,94 @@ export default function AddToPantryPage({ token }) {
       }
 
       alert("Something went wrong")
+      return
     } else {
       const ingr = await res.json()
       router.push(`/pantry`)
-      console.log(`You've added ${ingr} to your pantry`)
     }
   }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    // Spread out what's already there and assign name it's value
     setValues({ ...values, [name]: value })
   }
 
   return (
     <Layout title="Add To Pantry">
-      <Grid container>
-        <Typography
-          sx={{ marginBottom: "1.5rem" }}
-          variant="h3"
-          component="h1"
-        >
-          Add To Pantry
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Grid container xs={12}>
-            <Grid item xs={4}>
-              <label htmlFor="title">Ingredient</label>
-            </Grid>
-            <Grid item xs={8}>
-              <input
+      <Card>
+        <div className={classes.cardPadding}>
+          <Typography
+            variant="h3"
+            component="h1"
+            className={classes.header}
+          >
+            Add To Pantry
+          </Typography>
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            autoComplete="off"
+          >
+            <div>
+              <InputLabel htmlFor="title">
+                Ingredient
+              </InputLabel>
+              <TextField
+                fullWidth
+                required
+                variant="standard"
                 type="text"
                 id="title"
                 name="title"
                 value={values.title}
                 onChange={handleInputChange}
               />
-            </Grid>
-          </Grid>
-          <Grid container xs={12}>
-            <label htmlFor="quantity">Quantity</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value={values.quantity}
-              onChange={handleInputChange}
-            />
-          </Grid>
-          <Grid container xs={12}>
-            <label htmlFor="unit">Unit</label>
-            <input
-              type="text"
-              id="unit"
-              name="unit"
-              value={values.unit}
-              onChange={handleInputChange}
-            />
-          </Grid>
-          <input type="submit" value="Add" />
-        </form>
-
-        <Button
-          variant="contained"
-          onClick={() => router.push("account/pantry")}
-        >
-          Back to Pantry
-        </Button>
-      </Grid>
-    </Layout>
+            </div>
+            <div>
+              <InputLabel htmlFor="quantity" className={classes.marginTop}>
+                Quantity
+              </InputLabel>
+              <TextField
+                fullWidth
+                required
+                variant="standard"
+                type="number"
+                id="quantity"
+                name="quantity"
+                value={values.quantity}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <InputLabel htmlFor="unit" className={classes.marginTop}>
+                Unit
+              </InputLabel>
+              <TextField
+                fullWidth
+                required
+                variant="standard"
+                type="text"
+                id="unit"
+                name="unit"
+                value={values.unit}
+                onChange={handleInputChange}
+              />
+            </div>
+            <Button
+              type="submit"
+              className={classes.btnLarge}
+              variant="contained"
+              fullWidth
+            >
+              Add
+            </Button>
+            <p>
+              No ingredients to add? <Link href="/account/pantry"> Go back to Pantry </Link>
+            </p>
+          </form>
+        </div>
+      </Card>
+    </Layout >
   )
 }
 

@@ -40,7 +40,8 @@ export default function SettingsPage() {
                 sx={{ borderRadius: "10px", marginTop: "1rem" }}
                 component="img"
                 height="130"
-                image={"images/avatar.png"}
+                // Fix image url
+                image="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
                 alt=""
               />
             </Grid>
@@ -87,13 +88,13 @@ export default function SettingsPage() {
       </Card>
       <br />
       <Card className={classes.smallCard}>
-        <Link href="/privacy">
+        <Link href="/account/privacy">
           <a className={classes.cardLink}>Integritetspolicy </a>
         </Link>
       </Card>
       <br />
       <Card className={classes.smallCard}>
-        <Link href="/contact">
+        <Link href="/account/contact">
           <a className={classes.cardLink}>Kontakta Oss</a>
         </Link>
       </Card>

@@ -172,7 +172,7 @@ export default function Header() {
               <ListItemText primary="Pantry" />
             </ListItem>
             <Divider />
-            <ListItem onClick={() => router.push("/settings")}>
+            <ListItem onClick={() => router.push("account/settings")}>
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
