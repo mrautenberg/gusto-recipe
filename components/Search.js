@@ -3,25 +3,25 @@ import { useRouter } from "next/router"
 import { makeStyles } from "@mui/styles"
 
 import TextField from "@mui/material/TextField"
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment"
 
 import SearchIcon from "@mui/icons-material/Search"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function Search() {

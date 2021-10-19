@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography"
 /**
  * @TODO: Fix pagination --> infininte scroll?
  * @TODO: Display on different screen sizes
-*/
+ */
 
 export default function RecipesPage({ recipes, page, total }) {
   return (
@@ -26,11 +26,7 @@ export default function RecipesPage({ recipes, page, total }) {
           No recipes to show
         </Typography>
       )}
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(2, 1fr)"
-        gap={3}
-      >
+      <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>
         {recipes.map((rcp) => (
           <RecipeCard key={rcp.id} rcp={rcp} />
         ))}

@@ -14,19 +14,19 @@ import Button from "@mui/material/Button"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function MyPantryPage({ pantry, token }) {
@@ -38,8 +38,8 @@ export default function MyPantryPage({ pantry, token }) {
       const res = await fetch(`${API_URL}/pantries/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
       const data = await res.json()
 
@@ -53,18 +53,20 @@ export default function MyPantryPage({ pantry, token }) {
 
   return (
     <Layout>
-      <Typography
-        variant="h3"
-        component="h1"
-        className={classes.header}
-      >
+      <Typography variant="h3" component="h1" className={classes.header}>
         My Pantry
       </Typography>
       <Stack spacing={2} direction="row">
         <Button variant="text">Alla</Button>
-        <Button disabled variant="text">Kyl</Button>
-        <Button disabled variant="text">Frys</Button>
-        <Button disabled variant="text">Skafferi</Button>
+        <Button disabled variant="text">
+          Kyl
+        </Button>
+        <Button disabled variant="text">
+          Frys
+        </Button>
+        <Button disabled variant="text">
+          Skafferi
+        </Button>
       </Stack>
       {pantry.length === 0 && (
         <Typography variant="h6" component="h3">
@@ -106,8 +108,8 @@ export async function getServerSideProps({ req }) {
   const res = await fetch(`${API_URL}/pantries/me`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   })
 
   const pantry = await res.json()
@@ -115,7 +117,7 @@ export async function getServerSideProps({ req }) {
   return {
     props: {
       pantry,
-      token
-    }
+      token,
+    },
   }
 }

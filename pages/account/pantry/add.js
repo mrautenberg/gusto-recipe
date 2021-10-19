@@ -15,19 +15,19 @@ import Typography from "@mui/material/Typography"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function AddToPantryPage({ token }) {
@@ -56,7 +56,7 @@ export default function AddToPantryPage({ token }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(values),
     })
@@ -84,22 +84,12 @@ export default function AddToPantryPage({ token }) {
     <Layout title="Add To Pantry">
       <Card>
         <div className={classes.cardPadding}>
-          <Typography
-            variant="h3"
-            component="h1"
-            className={classes.header}
-          >
+          <Typography variant="h3" component="h1" className={classes.header}>
             Add To Pantry
           </Typography>
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            autoComplete="off"
-          >
+          <form onSubmit={handleSubmit} noValidate autoComplete="off">
             <div>
-              <InputLabel htmlFor="title">
-                Ingredient
-              </InputLabel>
+              <InputLabel htmlFor="title">Ingredient</InputLabel>
               <TextField
                 fullWidth
                 required
@@ -150,12 +140,13 @@ export default function AddToPantryPage({ token }) {
               Add
             </Button>
             <p>
-              No ingredients to add? <Link href="/account/pantry"> Go back to Pantry </Link>
+              No ingredients to add?{" "}
+              <Link href="/account/pantry"> Go back to Pantry </Link>
             </p>
           </form>
         </div>
       </Card>
-    </Layout >
+    </Layout>
   )
 }
 
@@ -164,7 +155,7 @@ export async function getServerSideProps({ req }) {
 
   return {
     props: {
-      token
-    }
+      token,
+    },
   }
 }

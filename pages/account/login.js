@@ -13,19 +13,19 @@ import Typography from "@mui/material/Typography"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function LoginPage() {
@@ -40,30 +40,19 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    login({ email, password });
+    login({ email, password })
   }
-
 
   return (
     <Layout title="User Login">
       <Card>
         <div className={classes.cardPadding}>
-          <Typography
-            variant="h3"
-            component="h1"
-            className={classes.header}
-          >
+          <Typography variant="h3" component="h1" className={classes.header}>
             Login
           </Typography>
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            autoComplete="off"
-          >
+          <form onSubmit={handleSubmit} noValidate autoComplete="off">
             <div>
-              <InputLabel htmlFor="email">
-                Email Address
-              </InputLabel>
+              <InputLabel htmlFor="email">Email Address</InputLabel>
               <TextField
                 fullWidth
                 onChange={(e) => setEmail(e.target.value)}
@@ -100,7 +89,8 @@ export default function LoginPage() {
           </form>
 
           <p>
-            Don't have an account? <Link href="/account/register"> Register </Link>
+            Don't have an account?{" "}
+            <Link href="/account/register"> Register </Link>
           </p>
         </div>
       </Card>

@@ -26,7 +26,6 @@ export default function NotFoundPage() {
       <>
         <div className={classes.contentContainer}>
           <SearchIcon sx={{ fontSize: 200 }} />
-
           <Typography variant="h3" component="h1">
             Not found
           </Typography>

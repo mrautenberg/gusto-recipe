@@ -1,15 +1,16 @@
 import * as React from "react"
 import { useContext } from "react"
 import { useRouter } from "next/router"
-
+import { makeStyles } from "@mui/styles"
 import { styled, useTheme } from "@mui/material/styles"
+
+import AuthContext from "@/context/AuthContext"
+
 import Box from "@mui/material/Box"
 import Drawer from "@mui/material/Drawer"
 import MuiAppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import List from "@mui/material/List"
-import Typography from "@mui/material/Typography"
-import Divider from "@mui/material/Divider"
 import IconButton from "@mui/material/IconButton"
 import MenuIcon from "@mui/icons-material/Menu"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
@@ -17,16 +18,14 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 import ListItem from "@mui/material/ListItem"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-// Icons
+
 import HomeIcon from "@mui/icons-material/Home"
 import KitchenIcon from "@mui/icons-material/Kitchen"
 import SettingsIcon from "@mui/icons-material/Settings"
 import MenuBookIcon from "@mui/icons-material/MenuBook"
+import LoginIcon from "@mui/icons-material/Login"
 import LogoutIcon from "@mui/icons-material/Logout"
-
 import Grid from "@mui/material/Grid"
-
-import AuthContext from "@/context/AuthContext"
 
 const drawerWidth = 240
 
@@ -75,7 +74,15 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
 }))
 
+const useStyles = makeStyles({
+  active: {
+    background: "#e5e5e5",
+  },
+})
+
 export default function Header() {
+  const classes = useStyles()
+
   const { user, logout } = useContext(AuthContext)
 
   const theme = useTheme()
@@ -90,6 +97,35 @@ export default function Header() {
   }
 
   const router = useRouter()
+
+  const menuItems = [
+    {
+      text: "Home",
+      icon: <HomeIcon />,
+      path: "/",
+    },
+    {
+      text: "Recipes",
+      icon: <MenuBookIcon />,
+      path: "/recipes",
+    },
+    {
+      text: "Pantry",
+      icon: <KitchenIcon />,
+      path: "/account/pantry",
+    },
+    {
+      text: "Settings",
+      icon: <SettingsIcon />,
+      path: "/account/settings",
+    },
+    // Would be nice to put in map but didn't work with logout func
+    // {
+    //   text: "Logout",
+    //   icon: <LogoutIcon />,
+    //   path: "/account/login",
+    // },
+  ]
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -109,8 +145,10 @@ export default function Header() {
               </IconButton>
             </Grid>
             <Grid
-              item xs={2}
-              sx={{ display: "flex", justifyContent: "flex-end" }}>
+              item
+              xs={2}
+              sx={{ display: "flex", justifyContent: "flex-end" }}
+            >
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -149,51 +187,38 @@ export default function Header() {
         </DrawerHeader>
 
         <List>
-          {user ? <>
-            {/* Should be possible to map when refactoring */}
-            <ListItem onClick={() => router.push("/")}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => router.push("/recipes")}>
-              <ListItemIcon>
-                <MenuBookIcon />
-              </ListItemIcon>
-              <ListItemText primary="Recipes" />
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => router.push("/account/pantry")}>
-              <ListItemIcon>
-                <KitchenIcon />
-              </ListItemIcon>
-              <ListItemText primary="Pantry" />
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => router.push("account/settings")}>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItem>
-            <Divider />
-            <ListItem onClick={() => logout()}>
-              <ListItemIcon>
-                <LogoutIcon />
-              </ListItemIcon>
-              <ListItemText primary="Sign Out" />
-            </ListItem>
-          </> : <>
-            <ListItem onClick={() => router.push("/account/login")}>
-              <ListItemIcon>
-                <LogoutIcon />
-              </ListItemIcon>
-              <ListItemText primary="Login" />
-            </ListItem>
-          </>}
-
+          {user ? (
+            <>
+              {menuItems.map((item) => (
+                <ListItem
+                  button
+                  key={item.text}
+                  onClick={() => router.push(item.path)}
+                  className={
+                    location.pathname == item.path ? classes.active : null
+                  }
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItem>
+              ))}
+              <ListItem button key={"logout"} onClick={() => logout()}>
+                <ListItemIcon>
+                  <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Logout"} />
+              </ListItem>
+            </>
+          ) : (
+            <>
+              <ListItem onClick={() => router.push("/account/login")}>
+                <ListItemIcon>
+                  <LoginIcon />
+                </ListItemIcon>
+                <ListItemText primary="Login" />
+              </ListItem>
+            </>
+          )}
         </List>
       </Drawer>
     </Box>

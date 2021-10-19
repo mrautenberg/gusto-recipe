@@ -15,19 +15,19 @@ import Typography from "@mui/material/Typography"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function EditPantryPage({ item, token }) {
@@ -56,7 +56,7 @@ export default function EditPantryPage({ item, token }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(values),
     })
@@ -82,18 +82,12 @@ export default function EditPantryPage({ item, token }) {
     <Layout title="Edit Ingredient">
       <Card>
         <div className={classes.cardPadding}>
-          <Typography
-            variant="h3"
-            component="h1"
-            className={classes.header}
-          >
+          <Typography variant="h3" component="h1" className={classes.header}>
             Edit Ingredient
           </Typography>
           <form onSubmit={handleSubmit}>
             <div>
-              <InputLabel htmlFor="title">
-                Ingredient
-              </InputLabel>
+              <InputLabel htmlFor="title">Ingredient</InputLabel>
               <TextField
                 fullWidth
                 required
@@ -144,7 +138,8 @@ export default function EditPantryPage({ item, token }) {
               Update
             </Button>
             <p>
-              Changed your mind? <Link href="/account/pantry"> Go back to Pantry </Link>
+              Changed your mind?{" "}
+              <Link href="/account/pantry"> Go back to Pantry </Link>
             </p>
           </form>
         </div>
@@ -162,7 +157,7 @@ export async function getServerSideProps({ params: { id }, req }) {
   return {
     props: {
       item,
-      token
+      token,
     },
   }
 }

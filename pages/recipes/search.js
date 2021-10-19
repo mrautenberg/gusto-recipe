@@ -13,19 +13,19 @@ import Typography from "@mui/material/Typography"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function SearchPage({ recipes }) {
@@ -37,11 +37,7 @@ export default function SearchPage({ recipes }) {
       <Typography variant="h3" component="h1">
         Search Results
       </Typography>
-      <Typography
-        variant="h5"
-        component="h2"
-        className={classes.marginTop}
-      >
+      <Typography variant="h5" component="h2" className={classes.marginTop}>
         Search term: <b>{router.query.term.toLowerCase()}</b>
       </Typography>
       <Search label="Search recipes" />

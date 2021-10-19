@@ -13,19 +13,19 @@ import Typography from "@mui/material/Typography"
 
 const useStyles = makeStyles({
   header: {
-    margin: "1.5rem 0"
+    margin: "1.5rem 0",
   },
   cardPadding: {
-    padding: "1rem"
+    padding: "1rem",
   },
   marginTop: {
-    marginTop: "1rem"
+    marginTop: "1rem",
   },
   btnLarge: {
     padding: "1em",
     marginTop: "2rem",
     borderRadius: "40px",
-  }
+  },
 })
 
 export default function RegisterPage() {
@@ -48,29 +48,19 @@ export default function RegisterPage() {
       return
     }
 
-    register({ email, username, password });
+    register({ email, username, password })
   }
 
   return (
     <Layout title="User Registration">
       <Card>
         <div className={classes.cardPadding}>
-          <Typography
-            variant="h3"
-            component="h1"
-            className={classes.header}
-          >
+          <Typography variant="h3" component="h1" className={classes.header}>
             Register
           </Typography>
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            autoComplete="off"
-          >
+          <form onSubmit={handleSubmit} noValidate autoComplete="off">
             <div>
-              <InputLabel htmlFor="username">
-                Username
-              </InputLabel>
+              <InputLabel htmlFor="username">Username</InputLabel>
               <TextField
                 fullWidth
                 required
@@ -110,7 +100,10 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <InputLabel htmlFor="passwordConfirm" className={classes.marginTop}>
+              <InputLabel
+                htmlFor="passwordConfirm"
+                className={classes.marginTop}
+              >
                 Confirm Password
               </InputLabel>
               <TextField
@@ -123,7 +116,6 @@ export default function RegisterPage() {
                 value={passwordConfirm}
               />
             </div>
-
             <Button
               variant="contained"
               fullWidth
@@ -133,7 +125,6 @@ export default function RegisterPage() {
               Register
             </Button>
           </form>
-
           <p>
             Don't have an account? <Link href="/account/login"> Login </Link>
           </p>
