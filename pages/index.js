@@ -1,9 +1,9 @@
-import { API_URL, PER_PAGE } from "@/config/index"
+import { API_URL } from "@/config/index"
+import Link from "next/link"
 
 import Layout from "@/components/Layout/Layout"
 import RecipeCard from "@/components/Recipe/RecipeCard"
 import Search from "@/components/Search"
-import Pagination from "@/components/Pagination"
 
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
@@ -16,14 +16,16 @@ import Typography from "@mui/material/Typography"
  *            - News from Gusto
  */
 
-export default function HomePage({ recipes, page, total }) {
+export default function HomePage({ recipes }) {
   return (
     <Layout>
       <Typography variant="h3" component="h1">
         Welcome to Gusto
       </Typography>
       <Search />
-      <br />
+      <Typography variant="h5" component="h2">
+        Check out our latest recipes
+      </Typography>
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
           No recipes to show
@@ -34,23 +36,23 @@ export default function HomePage({ recipes, page, total }) {
           <RecipeCard key={rcp.id} rcp={rcp} />
         ))}
       </Box>
-      <Pagination page={page} total={total} />
+      <Typography variant="h5" component="h2">
+        Do you need to add something to your pantry?{" "}
+        <Link href="/account/pantry">Go to your pantry</Link>
+      </Typography>
+      <Typography>
+        Looking for something else? <Link href="/recipes">See all recipes</Link>
+      </Typography>
     </Layout>
   )
 }
 
-export async function getServerSideProps({ query: { page = 1 } }) {
-  const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE
-
-  const totalRes = await fetch(`${API_URL}/recipes/count`)
-  const total = await totalRes.json()
-
-  const recipeRes = await fetch(
-    `${API_URL}/recipes?_sort=title:ASC&_limit=${PER_PAGE}&_start=${start}`
-  )
-  const recipes = await recipeRes.json()
+export async function getServerSideProps() {
+  // Limit to two in showcase instead of PER_PAGE
+  const res = await fetch(`${API_URL}/recipes?_sort=title:ASC&_limit=2`)
+  const recipes = await res.json()
 
   return {
-    props: { recipes, page: +page, total },
+    props: { recipes },
   }
 }
