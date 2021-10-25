@@ -52,42 +52,39 @@ export default function RecipeItem({ rcp }) {
           >
             <Button
               sx={{
-                padding: "0.8rem 0",
                 borderTopLeftRadius: "0px",
                 borderBottomLeftRadius: "0px",
               }}
             >
-              Ready in {rcp.minutes} <br /> minutes
+              Klart om {rcp.minutes} <br /> minuter
             </Button>
             <Button
               sx={{
-                padding: "0.5 rem 0",
                 borderTopRightRadius: "0px",
                 borderBottomRightRadius: "0px",
               }}
             >
-              Ingredients <br />
+              Ingredienser <br />
               4/7
             </Button>
           </ButtonGroup>
         </Grid>
       </Card>
 
-      {/* Fixa styling */}
-      <Grid container>
+      <Grid container={{ marginTop: "1rem" }} >
         <Grid item xs={12}>
           <ButtonGroup
             variant="text"
             aria-label="text button group"
             fullWidth
             elevation={5}
+            style={{ minHeight: "3rem", marginBottom: "1rem" }}
           >
             <Button onClick={() => setShowIngredients(true)}>
               ingredienser
             </Button>
             <Button
               onClick={() => setShowIngredients(false)}
-              sx={{ padding: "0.8rem 0" }}
             >
               instruktioner
             </Button>
@@ -95,7 +92,12 @@ export default function RecipeItem({ rcp }) {
         </Grid>
 
         <Grid item xs={12}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            style={{ marginBottom: "1rem" }}
+          >
             <Typography variant="body1" component="h3">
               <b>{rcp.portions}</b> portioner
             </Typography>
@@ -125,15 +127,16 @@ export default function RecipeItem({ rcp }) {
             </IconButton>
           </Stack>
         </Grid>
+
         <Grid item xs={12}>
           {showIngredients ? (
             <>
               <Typography variant="h5" component="h2">
                 Ingredienser:
               </Typography>
-              <ul style={{ listStyle: "none" }}>
+              <ul style={{ listStyle: "none", padding: "0" }}>
                 {rcp.ingredients.split("\n").map((r) => (
-                  <li key={r.id}>{r}</li>
+                  <li style={{ marginBottom: "0.5rem" }} key={r.id}>{r}</li>
                 ))}
               </ul>
             </>
@@ -142,17 +145,17 @@ export default function RecipeItem({ rcp }) {
               <Typography variant="h5" component="h2">
                 Instruktioner
               </Typography>
-              <ol style={{ listStyle: "none" }}>
+              <ol style={{ listStyle: "none", padding: "0" }}>
                 {rcp.instructions.split("\n").map((r) => (
                   // @TODO: Should be an id/idx but changed for now
                   // to keep warning away in console temporarily
-                  <li key={Math.random()}>{r}</li>
+                  <li style={{ marginBottom: "0.5rem" }} key={Math.random()}>{r}</li>
                 ))}
               </ol>
             </>
           )}
 
-          <Typography variant="h5" component="h2">
+          <Typography style={{ marginBottom: "0.5rem" }} variant="h5" component="h2">
             Author
           </Typography>
           <Typography variant="body1" component="p">

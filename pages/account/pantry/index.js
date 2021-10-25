@@ -34,7 +34,7 @@ export default function MyPantryPage({ pantry, token }) {
   const router = useRouter()
 
   const deleteItem = async (id) => {
-    if (confirm("Are you sure?")) {
+    if (confirm("Är du säker?")) {
       const res = await fetch(`${API_URL}/pantries/${id}`, {
         method: "DELETE",
         headers: {
@@ -54,7 +54,7 @@ export default function MyPantryPage({ pantry, token }) {
   return (
     <Layout>
       <Typography variant="h3" component="h1" className={classes.header}>
-        My Pantry
+        Mitt Pantry
       </Typography>
       <Stack spacing={2} direction="row">
         <Button variant="text">Alla</Button>
@@ -70,12 +70,12 @@ export default function MyPantryPage({ pantry, token }) {
       </Stack>
       {pantry.length === 0 && (
         <Typography variant="h6" component="h3">
-          No Ingredients in your pantry - add some!
+          Inga ingredienser i ditt pantry, lägg gärna till några
         </Typography>
       )}
       <div className={classes.marginTop}>
         {pantry.map((ingr) => (
-          <PantryItem
+          <PantryItem          
             key={ingr.id}
             id={ingr.id}
             title={ingr.title}
@@ -94,7 +94,7 @@ export default function MyPantryPage({ pantry, token }) {
             color="success"
             onClick={() => router.push("pantry/add")}
           >
-            Add new ingredient
+            Lägg till ingrediens
           </Button>
         </Grid>
       </Grid>

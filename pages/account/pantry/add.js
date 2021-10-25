@@ -85,11 +85,11 @@ export default function AddToPantryPage({ token }) {
       <Card>
         <div className={classes.cardPadding}>
           <Typography variant="h3" component="h1" className={classes.header}>
-            Add To Pantry
+            Lägg till ingrediens
           </Typography>
           <form onSubmit={handleSubmit} noValidate autoComplete="off">
             <div>
-              <InputLabel htmlFor="title">Ingredient</InputLabel>
+              <InputLabel htmlFor="title">Ingrediens</InputLabel>
               <TextField
                 fullWidth
                 required
@@ -103,7 +103,7 @@ export default function AddToPantryPage({ token }) {
             </div>
             <div>
               <InputLabel htmlFor="quantity" className={classes.marginTop}>
-                Quantity
+                Mängd
               </InputLabel>
               <TextField
                 fullWidth
@@ -118,7 +118,7 @@ export default function AddToPantryPage({ token }) {
             </div>
             <div>
               <InputLabel htmlFor="unit" className={classes.marginTop}>
-                Unit
+                Enhet
               </InputLabel>
               <TextField
                 fullWidth
@@ -137,11 +137,11 @@ export default function AddToPantryPage({ token }) {
               variant="contained"
               fullWidth
             >
-              Add
+              Lägg till
             </Button>
             <p>
-              No ingredients to add?{" "}
-              <Link href="/account/pantry"> Go back to Pantry </Link>
+              Ändrat dig eller klar här? <br />
+              <Link href="/account/pantry"> Tillbaka till Pantry </Link>
             </p>
           </form>
         </div>

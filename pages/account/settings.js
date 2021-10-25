@@ -29,7 +29,7 @@ export default function SettingsPage() {
   return (
     <Layout title="Settings">
       <Typography sx={{ marginBottom: "1.5rem" }} variant="h3" component="h1">
-        Settings
+        Inställningar
       </Typography>
 
       <Card sx={{ minWidth: 275 }}>
@@ -56,7 +56,7 @@ export default function SettingsPage() {
                 gutterBottom
                 color="text.secondary"
               >
-                myname@email.com
+                mittnamn@email.se
               </Typography>
               <Divider />
               <Typography
@@ -82,7 +82,7 @@ export default function SettingsPage() {
         </CardContent>
         <CardActions>
           <Button disabled fullWidth variant="contained">
-            Update
+            Uppdatera
           </Button>
         </CardActions>
       </Card>

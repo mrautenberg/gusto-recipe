@@ -8,22 +8,17 @@ import Pagination from "@/components/Pagination"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 
-/**
- * @TODO: Fix pagination --> infininte scroll?
- * @TODO: Display on different screen sizes
- */
-
 export default function RecipesPage({ recipes, page, total }) {
   return (
     <Layout>
       <Typography variant="h3" component="h1">
-        All Recipes
+        Alla recept
       </Typography>
       <Search />
       <br />
       {recipes.length === 0 && (
         <Typography variant="h6" component="h3">
-          No recipes to show
+          Inga recept tillgängliga
         </Typography>
       )}
       <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={3}>

@@ -28,7 +28,6 @@ export default function Search() {
   const classes = useStyles()
 
   const [term, setTerm] = useState("")
-  const [label, setLabel] = useState("Search recipe")
   const router = useRouter()
 
   // Reset label value after submit
@@ -36,7 +35,6 @@ export default function Search() {
     e.preventDefault()
     router.push(`/recipes/search?term=${term}`)
     setTerm("")
-    setLabel("")
   }
 
   return (
@@ -44,9 +42,10 @@ export default function Search() {
       <form onSubmit={handleSubmit}>
         <TextField
           onChange={(e) => setTerm(e.target.value)}
-          label={label}
           fullWidth
-          placeholder="Search"
+          // Hide label visually?
+          label="Sök recept"
+          placeholder="Sök recept"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
