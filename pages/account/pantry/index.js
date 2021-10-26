@@ -46,7 +46,7 @@ export default function MyPantryPage({ pantry, token }) {
       if (!res.ok) {
         console.error(data.message)
       } else {
-        router.reload()
+        router.push("/account/pantry")
       }
     }
   }

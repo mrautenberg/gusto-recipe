@@ -69,11 +69,13 @@ export default function EditPantryPage({ item, token }) {
       alert("Error")
     } else {
       const ingr = await res.json()
-      router.push(`/pantry`)
+      router.push(`/account/pantry`)
     }
   }
 
   const handleInputChange = (e) => {
+    e.preventDefault()
+
     const { name, value } = e.target
     setValues({ ...values, [name]: value })
   }

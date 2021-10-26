@@ -100,12 +100,12 @@ export default function Header() {
 
   const menuItems = [
     {
-      text: "Home",
+      text: "Hem",
       icon: <HomeIcon />,
       path: "/",
     },
     {
-      text: "Recipes",
+      text: "Recept",
       icon: <MenuBookIcon />,
       path: "/recipes",
     },
@@ -115,7 +115,7 @@ export default function Header() {
       path: "/account/pantry",
     },
     {
-      text: "Settings",
+      text: "Inställningar",
       icon: <SettingsIcon />,
       path: "/account/settings",
     },
@@ -137,8 +137,7 @@ export default function Header() {
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
-                // Add history to go back one page
-                onClick={() => router.push("/")}
+                onClick={() => router.back()}
                 sx={{ flexGrow: 1, ...(open && { display: "none" }) }}
               >
                 <ChevronLeftIcon />
@@ -206,7 +205,7 @@ export default function Header() {
                 <ListItemIcon>
                   <LogoutIcon />
                 </ListItemIcon>
-                <ListItemText primary={"Logout"} />
+                <ListItemText primary="Logga ut" />
               </ListItem>
             </>
           ) : (
@@ -215,7 +214,7 @@ export default function Header() {
                 <ListItemIcon>
                   <LoginIcon />
                 </ListItemIcon>
-                <ListItemText primary="Login" />
+                <ListItemText primary="Logga in" />
               </ListItem>
             </>
           )}

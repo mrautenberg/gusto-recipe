@@ -71,7 +71,7 @@ export default function AddToPantryPage({ token }) {
       return
     } else {
       const ingr = await res.json()
-      router.push(`/pantry`)
+      router.push(`/account/pantry`)
     }
   }
 
@@ -85,7 +85,7 @@ export default function AddToPantryPage({ token }) {
       <Card>
         <div className={classes.cardPadding}>
           <Typography variant="h3" component="h1" className={classes.header}>
-            Lägg till ingrediens
+            Ny ingrediens 
           </Typography>
           <form onSubmit={handleSubmit} noValidate autoComplete="off">
             <div>
