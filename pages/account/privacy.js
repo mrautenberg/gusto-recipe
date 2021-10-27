@@ -4,6 +4,10 @@ import Typography from "@mui/material/Typography"
 import Layout from "@/components/Layout/Layout"
 
 const useStyles = makeStyles({
+  header1: {
+    marginBottom: "1.5rem",
+    marginTop: "-1.5rem"
+  },
   paragraph: {
     marginBottom: "1rem",
   },
@@ -15,7 +19,11 @@ export default function PrivacyPage() {
   return (
     <Layout title="Privacy Policy">
       <article>
-        <Typography variant="h3" gutterBottom component="h1">
+        <Typography 
+          variant="h3" 
+          component="h1"
+          className={classes.header1}
+        >
           Integritetspolicy
         </Typography>
         <Typography variant="body1" component="p" className={classes.paragraph}>

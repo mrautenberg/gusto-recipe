@@ -1,11 +1,11 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": ["components/*"],
-      "@/context/*": ["context/*"],
-      "@/config/*": ["config/*"],
-      "@/helpers/*": ["helpers/*"]
-    }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/components/*": ["components/*"],
+			"@/context/*": ["context/*"],
+			"@/config/*": ["config/*"],
+			"@/helpers/*": ["helpers/*"]
+		}
+	}
 }

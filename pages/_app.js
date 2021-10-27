@@ -12,26 +12,26 @@ import { AuthProvider } from "@/context/AuthContext"
 const clientSideEmotionCache = createEmotionCache()
 
 export default function MyApp(props) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
-  return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <title>My page</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
-      </ThemeProvider>
-    </CacheProvider>
-  )
+	return (
+		<CacheProvider value={emotionCache}>
+			<Head>
+				<title>My page</title>
+				<meta name="viewport" content="initial-scale=1, width=device-width" />
+			</Head>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<AuthProvider>
+					<Component {...pageProps} />
+				</AuthProvider>
+			</ThemeProvider>
+		</CacheProvider>
+	)
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  emotionCache: PropTypes.object,
-  pageProps: PropTypes.object.isRequired,
+	Component: PropTypes.elementType.isRequired,
+	emotionCache: PropTypes.object,
+	pageProps: PropTypes.object.isRequired,
 }

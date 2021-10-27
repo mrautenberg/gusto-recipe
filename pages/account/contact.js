@@ -12,9 +12,17 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
   },
-  labelIcon: {
+  labelText: {
     display: "flex",
     alignItems: "center",
+    fontWeight: "bold"
+  },
+  labelIcon: {
+    marginRight: "0.5rem"
+  },
+  // @TODO: Overwrite classes as in theme
+  header1: {
+    marginBottom: "1.5rem",
   },
   mb1: {
     marginBottom: "1rem",
@@ -28,28 +36,36 @@ export default function ContactPage() {
     <Layout title="Contact us">
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
-          <Typography gutterBottom variant="h3" component="h1">
+          <Typography
+            variant="h3" 
+            component="h1"
+            className={classes.header1}
+          >
             Kontakta oss
           </Typography>
           <div className={classes.labelContainer}>
             <Typography
               variant="h5"
               component="h2"
-              className={classes.labelIcon}
+              className={classes.labelText}
             >
-              <EmailIcon sx={{ marginRight: "0.5rem" }} /> Epost
+              <EmailIcon className={classes.labelIcon} /> Epost
             </Typography>
           </div>
-          <Typography className={classes.mb1} variant="body1" component="p">
+          <Typography 
+            className={classes.mb1}
+            variant="body1" 
+            component="p"
+          >
             hello@gusto.dev
           </Typography>
           <div className={classes.labelContainer}>
             <Typography
               variant="h5"
               component="h2"
-              className={classes.labelIcon}
+              className={classes.labelText}
             >
-              <PhoneIcon sx={{ marginRight: "0.5rem" }} /> Telefon
+              <PhoneIcon className={classes.labelIcon} /> Telefon
             </Typography>
           </div>
           <Typography variant="body1" component="p">
