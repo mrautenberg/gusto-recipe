@@ -8,10 +8,7 @@ const theme = createTheme({
 			main: "#FA4A0C",
 		},
 		secondary: {
-			main: "#19857b",
-		},
-		error: {
-			main: red.A400,
+			main: "#2e2b2b",
 		},
 		background: {
 			default: "#e5e5e5",
@@ -26,6 +23,7 @@ const theme = createTheme({
 			fontWeight: "bold",
 		},
 	},
+
 })
 
 export default theme

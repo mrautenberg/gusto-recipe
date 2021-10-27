@@ -15,17 +15,18 @@ export default function Footer() {
 				justifyContent="center"
 				alignItems="center"
 				spacing={1}
+				
 			>
-				<IconButton aria-label="Facebook" size="large">
+				<IconButton aria-label="Facebook" size="large" color="secondary">
 					<FacebookIcon fontSize="inherit" />
 				</IconButton>
-				<IconButton aria-label="Instagram" size="large">
+				<IconButton aria-label="Instagram" size="large" color="secondary">
 					<InstagramIcon fontSize="inherit" />
 				</IconButton>
-				<IconButton aria-label="Twitter" size="large">
+				<IconButton aria-label="Twitter" size="large" color="secondary">
 					<TwitterIcon fontSize="inherit" />
 				</IconButton>
-				<IconButton aria-label="Youtube" size="large">
+				<IconButton aria-label="Youtube" size="large" color="secondary">
 					<YouTubeIcon />
 				</IconButton>
 			</Stack>

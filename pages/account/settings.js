@@ -29,7 +29,8 @@ export default function SettingsPage() {
 	return (
 		<Layout title="Settings">
 			<Typography
-				sx={{ marginBottom: "1.5rem" }}
+				sx={{ marginBottom: "1.5rem",
+				marginTop: "-1.5rem" }}
 				variant="h3"
 				component="h1"
 			>

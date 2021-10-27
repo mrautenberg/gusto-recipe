@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography"
 const useStyles = makeStyles({
 	header1: {
 		marginBottom: "1.5rem",
-		marginTop: "-1.5rem"
+		marginTop: "-1.5rem",
 	},
 	headers: {
 		marginTop: "1rem",
@@ -32,7 +32,7 @@ export default function HomePage({ descendingRecipes, ascendingRecipes }) {
 				component="h1"
 				className={classes.header1}
 			>
-				Welcome to Gusto
+				Gusto App 
 			</Typography>
 			<Search />
 			<Typography

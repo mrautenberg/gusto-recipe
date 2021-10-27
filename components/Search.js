@@ -43,8 +43,6 @@ export default function Search() {
         <TextField
           onChange={(e) => setTerm(e.target.value)}
           fullWidth
-          // Hide label visually?
-          label="Sök recept"
           placeholder="Sök recept"
           InputProps={{
             startAdornment: (
